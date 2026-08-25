@@ -14,9 +14,64 @@ write 111100111001111 bank1 23
 jump 15 notEqual Número 6
 write 111100111101111 bank1 23
 jump 17 notEqual Número 7
-write 111001011001001 bank1 23
+write 111001001001001 bank1 23
 jump 19 notEqual Número 8
 write 111101111101111 bank1 23
 jump 21 notEqual Número 9
 write 111101111001001 bank1 23
 wait 0
+jump 24 notEqual Número 10
+write 010101111101101 bank1 23
+jump 26 notEqual Número 11
+write 100100111101111 bank1 23
+jump 28 notEqual Número 12
+write 011100100100011 bank1 23
+jump 30 notEqual Número 13
+write 001001111101111 bank1 23
+jump 32 notEqual Número 14
+write 111100111100111 bank1 23
+jump 34 notEqual Número 15
+write 111100111100100 bank1 23
+jump 36 notEqual Número 16
+write 111101111001011 bank1 23
+jump 38 notEqual Número 17
+write 100100111101101 bank1 23
+jump 40 notEqual Número 18
+write 010000010010010 bank1 23
+jump 42 notEqual Número 19
+write 011001001101011 bank1 23
+jump 44 notEqual Número 20
+write 101101110101101 bank1 23
+jump 46 notEqual Número 21
+write 100100100100111 bank1 23
+jump 48 notEqual Número 22
+write 101111101101101 bank1 23
+jump 50 notEqual Número 23
+write 000110101101101 bank1 23
+jump 52 notEqual Número 24
+write 010101101101010 bank1 23
+jump 54 notEqual Número 25
+write 111101111100100 bank1 23
+jump 56 notEqual Número 26
+write 111101111001001 bank1 23
+jump 58 notEqual Número 27
+write 110101110101101 bank1 23
+jump 60 notEqual Número 28
+write 011100010001110 bank1 23
+jump 62 notEqual Número 29
+write 000101101101011 bank1 23
+jump 64 notEqual Número 30
+write 000101101101010 bank1 23
+jump 66 notEqual Número 31
+write 111010010010010 bank1 23
+jump 68 notEqual Número 32
+write 101101101111101 bank1 23
+jump 70 notEqual Número 33
+write 101101010101101 bank1 23
+jump 72 notEqual Número 34
+write 101101111001111 bank1 23
+jump 74 notEqual Número 35
+write 111001010100111 bank1 23
+jump 76 notEqual Número 36
+write 0 bank1 23
+jump -1 notEqual Número 37
