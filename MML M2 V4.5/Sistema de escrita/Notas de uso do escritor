@@ -1,0 +1,5 @@
+sensor a switch3 @enabled
+jump 0 notEqual a 1
+control enabled switch3 0 0 0 0
+write 67 cell1 0
+write 67 cell1 1
