@@ -1,0 +1,40 @@
+set IDoBancoAtual 1
+set CaixaLida 255
+read Pronto? cell1 1
+jump 2 notEqual Pronto? 1
+set TempoInicial @time
+set Achei? 0
+write Achei? cell1 2
+wait 0
+read AssinaturaAlvo cell1 0
+write 0 cell1 1
+op mul IDoValor 2 IDoBancoAtual
+op sub IDaAssinatura IDoValor 1
+getlink BancoDoValor IDoValor
+getlink BancoDaAssinatura IDaAssinatura
+read AssinaturaDaCaixa BancoDaAssinatura CaixaLida
+jump 33 strictEqual AssinaturaAlvo AssinaturaDaCaixa
+op add CaixaLida CaixaLida 1
+jump 14 lessThanEq CaixaLida 511
+op add IDoBancoAtual IDoBancoAtual 1
+set CaixaLida 255
+jump 10 lessThan IDoBancoAtual 3
+set Achei? 0
+read OOutroLeitorAchou? cell1 2
+jump 25 strictEqual OOutroLeitorAchou? 1
+write Achei? cell1 2
+set TempoFinal @time
+op sub TempoTotal TempoFinal TempoInicial
+op div TempoTotal TempoTotal 1000
+wait 0.1
+read TotalLido cell1 6
+op sub TotalLido TotalLido 1
+write TotalLido cell1 6
+end
+wait 0
+set Achei? 1
+read ValorDaCaixa BancoDoValor CaixaLida
+write ValorDaCaixa cell1 3
+write CaixaLida cell1 4
+write IDoBancoAtual cell1 5
+write Achei? cell1 2
