@@ -1,0 +1,46 @@
+set IDoBanco 0
+set NúmeroDeTentativas 0
+sensor a switch1 @enabled
+jump 2 notEqual a 1
+control enabled switch1 0 0 0 0
+read Valor cell1 0
+read Assinatura cell1 1
+read EstadoDoLeitor cell2 8
+jump 7 notEqual EstadoDoLeitor 1
+write Assinatura cell2 0
+control enabled switch2 1 0 0 0
+read EstadoDoLeitor cell2 8
+jump 23 strictEqual EstadoDoLeitor -1
+jump 11 notEqual EstadoDoLeitor 2
+write 1 cell2 8
+read Caixa cell2 4
+read IDoBanco cell2 5
+op add IDoBanco IDoBanco 2
+op mul IDoValor 2 IDoBanco
+op sub IDoValor IDoValor 1
+getlink BancoDoValor IDoValor
+write Valor BancoDoValor Caixa
+end
+wait 0
+write 1 cell2 8
+op add IDoBanco IDoBanco 1
+op add IDoBanco IDoBanco 1
+jump 0 greaterThan IDoBanco 9
+op mul IDoValor 2 IDoBanco
+op sub IDaAssinatura IDoValor 0
+op add IDoValor IDoValor 1
+getlink BancoDoValor IDoValor
+getlink BancoDaAssinatura IDaAssinatura
+op rand Caixa 511 2
+op round Caixa Caixa 2
+read CaixaOcupada? BancoDaAssinatura Caixa
+jump 40 strictEqual CaixaOcupada? 1E300
+op add NúmeroDeTentativas NúmeroDeTentativas 1
+jump 26 greaterThanEq NúmeroDeTentativas 300
+jump 33 always CaixaOcupadaitor 1E300
+write Valor BancoDoValor Caixa
+write Assinatura BancoDaAssinatura Caixa
+end
+op add IDaAssinatura IDoValor 1
+getlink BancoDaAssinatura IDaAssinatura
+write Assinatura BancoDaAssinatura Caixa
