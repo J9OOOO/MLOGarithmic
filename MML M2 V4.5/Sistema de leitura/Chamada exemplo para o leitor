@@ -1,0 +1,16 @@
+read Estado cell1 2
+jump 0 notEqual Estado 1
+write 1 cell1 0
+control enabled switch1 1 0 0 0
+read Estado cell1 2
+jump 12 strictEqual Estado -1
+jump 4 notEqual Estado 2
+write 67 cell1 2
+read Valor cell1 1
+print Valor
+printflush message1
+stop
+print "Deu errado"
+write 67 cell1 2
+printflush message1
+stop
