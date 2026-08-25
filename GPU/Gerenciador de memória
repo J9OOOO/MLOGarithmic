@@ -1,0 +1,43 @@
+set n 0
+read Código bank1 23
+op sub 14-n 14 n
+op pow 2^n 10 14-n
+op div p1 Código 2^n
+op floor p2 p1 2^n
+op mod Resultado p2 2
+write Resultado bank1 n
+op add n n 1
+jump 2 lessThanEq n 15
+read a1 bank1 0
+read b1 bank1 1
+read c1 bank1 2
+read a2 bank1 3
+read b2 bank1 4
+read c2 bank1 5
+read a3 bank1 6
+read b3 bank1 7
+read c3 bank1 8
+read a4 bank1 9
+read b4 bank1 10
+read c4 bank1 11
+read a5 bank1 12
+read b5 bank1 13
+read c5 bank1 14
+wait 0
+write a1 cell1 0
+write a2 cell1 4
+write a3 cell1 8
+write a4 cell1 12
+write a5 cell1 16
+wait 0
+write b1 cell1 1
+write b2 cell1 5
+write b3 cell1 9
+write b4 cell1 13
+write b5 cell1 17
+wait 0
+write c1 cell1 2
+write c2 cell1 6
+write c3 cell1 10
+write c4 cell1 14
+write c5 cell1 18
