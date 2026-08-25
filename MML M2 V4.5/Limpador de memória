@@ -1,0 +1,13 @@
+getlink a 0
+sensor c a @enabled
+jump 0 notEqual c 1
+control enabled a 0 0 0 0
+set i 1
+set j 0
+getlink b i
+write 1E300 b j
+op add j j 1
+jump 7 lessThanEq j 511
+op add i i 1
+set j 0
+jump 6 lessThanEq i 5
