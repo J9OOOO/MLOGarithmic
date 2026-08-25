@@ -1,0 +1,22 @@
+read Número cell1 0
+jump 3 notEqual Número 0
+write 111101101101111 bank1 23
+jump 5 notEqual Número 1
+write 011001001001001 bank1 23
+jump 7 notEqual Número 2
+write 111001111100111 bank1 23
+jump 9 notEqual Número 3
+write 111001111001111 bank1 23
+jump 11 notEqual Número 4
+write 101101111001001 bank1 23
+jump 13 notEqual Número 5
+write 111100111001111 bank1 23
+jump 15 notEqual Número 6
+write 111100111101111 bank1 23
+jump 17 notEqual Número 7
+write 111001011001001 bank1 23
+jump 19 notEqual Número 8
+write 111101111101111 bank1 23
+jump 21 notEqual Número 9
+write 111101111001001 bank1 23
+wait 0
