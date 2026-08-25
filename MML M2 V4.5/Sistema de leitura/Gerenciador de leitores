@@ -1,0 +1,35 @@
+write 0 cell1 6
+getlink a 0
+sensor b a @enabled
+draw clear 0 0 0 0 0 0
+drawflush display1
+write 1 cell1 8
+jump 2 notEqual b 1
+control enabled a 0 0 0 0
+write 0 cell1 8
+write 1 cell1 1
+read ConseguiramOValor? cell1 2
+read AlgumValorEncontrado? cell1 6
+read Leitor2Resultado cell1 7
+op add ResultadoTotal Leitor1Resultado Leitor2Resultado
+jump 25 greaterThan AlgumValorEncontrado? -2
+draw clear 255 0 0 0 0 0
+drawflush display1
+write 0 cell1 2
+write 0 cell1 6
+write 0 cell1 7
+write -1 cell1 8
+read ChamadaConcluída? cell1 8
+jump 21 notEqual ChamadaConcluída? 1
+wait 1
+end
+jump 10 strictEqual ConseguiramOValor? 0
+write 0 cell1 2
+write 0 cell1 6
+write 0 cell1 7
+draw clear 0 255 0 0 0 0
+drawflush display1
+write 2 cell1 8
+read ChamadaConcluída? cell1 8
+jump 32 notEqual ChamadaConcluída? 1
+wait 1
