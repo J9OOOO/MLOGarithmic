@@ -1,0 +1,23 @@
+set i 0
+set Assinatura1 67
+set Assinatura2 68
+read Estado cell1 2
+jump 3 notEqual Estado 1
+write Assinatura1 cell1 0
+control enabled switch1 1 0 0 0
+read Estado cell1 2
+jump 19 strictEqual Estado -1
+jump 7 notEqual Estado 2
+write 67 cell1 2
+read Valor cell1 1
+print Valor
+printflush message1
+set Assinatura1 Assinatura2
+write Valor cell2 i
+op add i i 1
+jump 3 lessThan i 2
+stop
+print "Deu errado"
+write 67 cell1 2
+printflush message1
+stop
