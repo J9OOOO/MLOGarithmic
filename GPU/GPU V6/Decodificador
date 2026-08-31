@@ -1,0 +1,37 @@
+set n 0
+set j 0
+read Código cell2 59
+op sub 14-n 15 n
+op pow 2^n 10 14-n
+op div p1 Código 2^n
+op floor p2 p1 2^n
+op mod Resultado p2 2
+jump 10 strictEqual 14-n -1
+write Resultado cell2 n
+op add n n 1
+op add j j 1
+jump 3 lessThanEq n 15
+set n 0
+read Código cell2 60
+op sub 14-n 15 n
+op pow 2^n 10 14-n
+op div p1 Código 2^n
+op floor p2 p1 2^n
+op mod Resultado p2 2
+jump 22 strictEqual 14-n -1
+write Resultado cell2 j
+op add n n 1
+op add j j 1
+jump 15 lessThanEq n 15
+set n 0
+read Código cell2 61
+op sub 14-n 2 n
+op pow 2^n 10 14-n
+op div p1 Código 2^n
+op floor p2 p1 2^n
+op mod Resultado p2 2
+jump 34 strictEqual 14-n -1
+write Resultado cell2 j
+op add n n 1
+op add j j 1
+jump 27 lessThanEq n 3
