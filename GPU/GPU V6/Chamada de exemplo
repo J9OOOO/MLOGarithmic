@@ -1,0 +1,5 @@
+set i 0
+write i cell1 63
+op add i i 1
+wait 1
+jump 1 lessThanEq i 52
