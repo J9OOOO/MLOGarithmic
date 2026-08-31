@@ -1,0 +1,216 @@
+getlink a 0
+set b 59
+read Número a 63
+jump 7 notEqual Número 0
+write 0111010001100011 a b
+write 0001100011000101 a 60
+write 110 a 61
+jump 11 notEqual Número 1
+write 0001100101000010 a b
+write 0001000010000100 a 60
+write 001 a 61
+jump 15 notEqual Número 2
+write 1111000001000010 a b
+write 1110100001000011 a 60
+write 111 a 61
+jump 19 notEqual Número 3
+write 0111000001000010 a b
+write 1110000010000101 a 60
+write 110 a 61
+jump 23 notEqual Número 4
+write 1000110001100010 a b
+write 1111000010000100 a 60
+write 001 a 61
+jump 27 notEqual Número 5
+write 1111110000100000 a b
+write 1110000010000111 a 60
+write 110 a 61
+jump 31 notEqual Número 6
+write 0111010001100001 a b
+write 1111100011000101 a 60
+write 110 a 61
+jump 35 notEqual Número 7
+write 0111100001000010 a b
+write 0001000010000100 a 60
+write 001 a 61
+jump 39 notEqual Número 8
+write 0111010001100010 a b
+write 1110100011000101 a 60
+write 110 a 61
+jump 43 notEqual Número 9
+write 0111010001100010 a b
+write 1111000011000101 a 60
+write 110 a 61
+jump 47 notEqual Número 10
+write 0000000000011001 a b
+write 0010100101001001 a 60
+write 101 a 61
+jump 51 notEqual Número 11
+write 0000000000100001 a b
+write 1100100101001001 a 60
+write 100 a 61
+jump 55 notEqual Número 12
+write 0000000000011101 a b
+write 0000100001000001 a 60
+write 110 a 61
+jump 59 notEqual Número 13
+write 0000000000000010 a b
+write 0111010010100100 a 60
+write 110 a 61
+jump 63 notEqual Número 14
+write 0000000000011001 a b
+write 0010111101000001 a 60
+write 110 a 61
+jump 67 notEqual Número 15
+write 0000000000011101 a b
+write 0000111001000010 a 60
+write 000 a 61
+jump 71 notEqual Número 16
+write 0000000110010010 a b
+write 1111000010100100 a 60
+write 110 a 61
+jump 75 notEqual Número 17
+write 0000000000100001 a b
+write 0000111001001010 a 60
+write 010 a 61
+jump 79 notEqual Número 18
+write 0000000100000000 a b
+write 0100001000010000 a 60
+write 100 a 61
+jump 83 notEqual Número 19
+write 0000000010000000 a b
+write 0010000100101000 a 60
+write 100 a 61
+jump 87 notEqual Número 20
+write 0000000000100101 a b
+write 0010111001001010 a 60
+write 010 a 61
+jump 91 notEqual Número 21
+write 0000000000001000 a b
+write 0100001000010000 a 60
+write 010 a 61
+jump 95 notEqual Número 22
+write 0000000000010101 a b
+write 0101100011000110 a 60
+write 001 a 61
+jump 99 notEqual Número 23
+write 0000000000101001 a b
+write 1010100101001010 a 60
+write 010 a 61
+jump 103 notEqual Número 24
+write 0000000000011101 a b
+write 0001100011000101 a 60
+write 110 a 61
+jump 107 notEqual Número 25
+write 0000000000011001 a b
+write 0010100101110010 a 60
+write 000 a 61
+jump 111 notEqual Número 26
+write 0000000000001100 a b
+write 1001010010011100 a 60
+write 001 a 61
+jump 115 notEqual Número 27
+write 0000000000101100 a b
+write 1001010000100001 a 60
+write 000 a 61
+jump 119 notEqual Número 28
+write 0000000000111101 a b
+write 0000111100001011 a 60
+write 110 a 61
+jump 123 notEqual Número 29
+write 0000000000100101 a b
+write 0010100101001001 a 60
+write 110 a 61
+jump 127 notEqual Número 30
+write 0000000000101101 a b
+write 0010100101001001 a 60
+write 100 a 61
+jump 131 notEqual Número 31
+write 0000000000011100 a b
+write 0100001000010000 a 60
+write 100 a 61
+jump 135 notEqual Número 32
+write 0000000000100011 a b
+write 0001100011010101 a 60
+write 010 a 61
+jump 139 notEqual Número 33
+write 0000000000100101 a b
+write 0010011001001010 a 60
+write 010 a 61
+jump 143 notEqual Número 34
+write 0000001010010100 a b
+write 0110000100101000 a 60
+write 110 a 61
+jump 147 notEqual Número 35
+write 0000000000111110 a b
+write 0010001000100011 a 60
+write 111 a 61
+jump 151 notEqual Número 36
+write 0000000000000000 a b
+write 0000000000000000 a 60
+write 000 a 61
+jump 155 notEqual Número 37
+write 0000000000000000 a b
+write 0000001100111001 a 60
+write 100 a 61
+jump 159 notEqual Número 38
+write 0000000000000000 a b
+write 0000011100111001 a 60
+write 110 a 61
+jump 163 notEqual Número 39
+write 0010000100001000 a b
+write 0100001000000000 a 60
+write 100 a 61
+jump 167 notEqual Número 40
+write 0110010010100100 a b
+write 0010000100000000 a 60
+write 010 a 61
+jump 171 notEqual Número 41
+write 0000001100011000 a b
+write 0000000000110001 a 60
+write 100 a 61
+jump 175 notEqual Número 42
+write 0000001100011000 a b
+write 0000000000010001 a 60
+write 000 a 61
+jump 179 notEqual Número 43
+write 0000000000000000 a b
+write 1110000000000000 a 60
+write 000 a 61
+jump 183 notEqual Número 44
+write 0000000000001000 a b
+write 1110001000000000 a 60
+write 000 a 61
+jump 187 notEqual Número 45
+write 0000000000011100 a b
+write 0000011100000000 a 60
+write 000 a 61
+jump 191 notEqual Número 46
+write 0000000000010100 a b
+write 0100010100000000 a 60
+write 000 a 61
+jump 195 notEqual Número 47
+write 0000100001000100 a b
+write 0100010001000010 a 60
+write 000 a 61
+jump 199 notEqual Número 48
+write 0100010000100001 a b
+write 0000100001000001 a 60
+write 000 a 61
+jump 203 notEqual Número 49
+write 0001000001000010 a b
+write 0001000010000100 a 60
+write 010 a 61
+jump 207 notEqual Número 50
+write 1100010000100001 a b
+write 0000100001000011 a 60
+write 000 a 61
+jump 211 notEqual Número 51
+write 0001100001000010 a b
+write 0001000010000100 a 60
+write 011 a 61
+jump 215 notEqual Número 52
+write 0000000100000100 a b
+write 0001000100010000 a 60
+write 000 a 61
+jump -1 notEqual Número 53
