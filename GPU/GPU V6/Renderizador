@@ -1,0 +1,9 @@
+set i 0
+op add i+1 i 1
+getlink Display i+1
+read ValorDoDisplay cell1 i
+select Cor strictEqual ValorDoDisplay 1 255 0
+draw clear 0 0 Cor 0 0 0
+op add i i 1
+drawflush Display
+jump 1 lessThanEq i 36
