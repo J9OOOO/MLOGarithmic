@@ -1,0 +1,59 @@
+QDeBancos:
+Quantidade de pares de bancos
+Exemplo:
+(0,1) e (1, 2) são 2 pares
+
+Sinal?:
+Leia a documentação principal
+Alguém -> programa
+
+Assinatura:
+Endereço lógico na qual o valor vai ser vínculado
+Basicamente:
+Assinatura -> valor
+
+Valor:
+O valor vínculado a assinatura
+
+Acabou?:
+Leia a documentação principal
+Programa -> sistema de leitura
+
+Banco:
+O índice lógico do banco na qual o escritor vai escrever a assinatura (se não existir ela não é utilizada)
+O conceito é:
+(banco, caixa, assinatura, valor)
+
+Caixa:
+O índice físico dentro do banco na qual o escritor vai escrever o valor (ou a assinatura também)
+
+IAssinatura:
+O índice físico do banco das assinaturas no escritor
+
+IValor:
+O índice físico do banco de valores no escritor
+
+BancoValor:
+O banco na qual vai ser escrito o valor
+
+BancoAssinatura:
+O banco na qual vai ser escrito a assinatura
+
+Leu?:
+Leia a documentação principal
+Alguém -> programa
+
+IAssSemLinkagem:
+Índice lógico do banco das assinaturas (sem considerar os outros periféricos vínculados)
+
+Limite:
+Uma variável que conta quantas tentativas de encontrar uma caixa livre tem (se atingir 300 tentativas, o sistema desiste e pula para o próximo banco)
+
+Tem?:
+O valor da assinatura dentro da caixa atual
+Se tiver, o sistema pula ela e procura outra
+Se não, ele escolhe essa para colocar a assinatura e valor
+
+
+
+O sistema escolhe a caixa que vai escrever a assinatura e o valor (caso não estiver no modo de sobrescrever) aleatoriamente, verifica se aquela caixa está sem uma assinatura, e coloca
