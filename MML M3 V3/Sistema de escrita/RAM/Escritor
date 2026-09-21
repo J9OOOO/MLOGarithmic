@@ -1,0 +1,55 @@
+set QDeBancos 2
+read Sinal? cell1 2
+jump 1 notEqual Sinal? 1
+write -1 cell1 2
+read Assinatura cell1 0
+read Valor cell1 1
+wait 0
+wait 0
+write Assinatura cell2 0
+write 1 cell2 3
+read Acabou? cell2 3
+jump 26 strictEqual Acabou? -2
+jump 9 notEqual Acabou? 2
+write 0 cell2 3
+read Banco cell2 2
+read Caixa cell2 4
+wait 0
+wait 0
+op add IAssinatura Banco 3
+op add IValor IAssinatura 1
+getlink BancoValor IValor
+write Valor BancoValor Caixa
+write 2 cell1 2
+read Leu? cell1 2
+jump 23 strictEqual Leu? 2
+end
+set IAssinatura 3
+op sub IAssSemLinkagem IAssinatura 3
+op add IValor IAssinatura 1
+getlink BancoAssinatura IAssinatura
+getlink BancoValor IValor
+set Limite 0
+op rand Caixa 511 b
+op round Caixa Caixa b
+read Tem? BancoAssinatura Caixa
+jump 47 strictEqual Tem? 0
+op add Limite Limite 1
+jump 32 lessThanEq Limite 300
+op add IAssinatura IAssinatura 1
+op add IAssSemLinkagem IAssSemLinkagem 1
+jump 27 lessThan IAssSemLinkagem QDeBancos
+print "Sem lugar para escrever"
+printflush message1
+write -2 cell1 2
+read Leu? cell1 2
+jump 44 strictEqual Leu? -2
+end
+write Assinatura BancoAssinatura Caixa
+write Valor BancoValor Caixa
+write 2 cell1 2
+read Leu? cell1 2
+jump 50 strictEqual Leu? 2
+print "Lugar escrito: "
+print Caixa
+printflush message1
