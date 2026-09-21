@@ -1,0 +1,35 @@
+Pronto?:
+Se o programa foi chamado por algo
+Se 1, ele executa
+Caso não, ele espera até ser chamado
+
+AssinaturaAlvo:
+Assinatura na qual ele vai procurar dentro dos bancos de memória da assinatura
+
+ICaixa:
+Índice físico da caixa dos bancos atuais vínculados
+Basicamente o lugar físico onde ele vai ler a assinatura e o valor
+
+IAssinatura:
+Índice físico na qual ele vai linkar o banco das assinaturas
+É 2 pois há outros dois periféricos sendo vínculados a ele
+
+IValor:
+Índice físico na qual ele vai linkar o banco de valores
+É IAssinatura + 1 pois a assinatura e valor operam em pares
+Exemplo:
+(0, 1) = (Banco das assinaturas, Banco de valores)
+
+BancoAtualAssinatura:
+O banco de memória físico que corresponde as assinaturas (constante)
+
+BancoAtualValor:
+O banco de memória físico que corresponde aos valores das assinaturas (constante)
+
+Leu?:
+Se o programa que chamou ele viu o sinal (ou 2, ou -2)
+Se é 0, o progrmama que chamou viu e ele para
+Se não, ele continua esperando ele ler
+
+Tempo médio de sobrescrita: 200 ms
+Tempo médio de escrita: 300 - 354 ms
