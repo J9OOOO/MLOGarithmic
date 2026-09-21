@@ -1,0 +1,42 @@
+set LeitorN 1
+op add Leitor LeitorN 30
+read Pronto? cell1 3
+jump 2 notEqual Pronto? 1
+write -1 cell1 Leitor
+read AssinaturaAlvo cell1 0
+set ICaixa 0
+set IAssinatura 2
+op add IValor IAssinatura 1
+getlink BancoAtualAssinatura IAssinatura
+getlink BancoAtualValor IValor
+read AssinaturaCaixa BancoAtualAssinatura ICaixa
+jump 28 notEqual AssinaturaAlvo AssinaturaCaixa
+read Valor BancoAtualValor ICaixa
+print "Ass["
+print AssinaturaAlvo
+print "] = "
+print Valor
+printflush message1
+op sub IBanco IAssinatura 2
+write 2 cell1 Leitor
+write Valor cell1 1
+write IBanco cell1 2
+write ICaixa cell1 4
+read Leu? cell1 3
+jump 24 notEqual Leu? 0
+write 0 cell1 Leitor
+end
+op add ICaixa ICaixa 1
+jump 11 lessThanEq ICaixa 511
+set ICaixa 0
+op add IAssinatura IAssinatura 2
+jump 8 lessThanEq IAssinatura 4
+print "Não existe nenhuma Ass["
+print AssinaturaAlvo
+print "]"
+printflush message1
+write -2 cell1 Leitor
+read Acabou? cell1 3
+jump 38 notEqual Acabou? 0
+write 0 cell1 Leitor
+end
