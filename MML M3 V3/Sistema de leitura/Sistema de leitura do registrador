@@ -1,0 +1,34 @@
+read Pronto? cell3 3
+jump 0 notEqual Pronto? 1
+write -1 cell3 3
+read AssinaturaAlvo cell3 0
+set ICaixa 0
+set IAssinatura 2
+op add IValor IAssinatura 1
+getlink BancoAtualAssinatura 1
+getlink BancoAtualValor 0
+read AssinaturaCaixa BancoAtualAssinatura ICaixa
+jump 24 notEqual AssinaturaAlvo AssinaturaCaixa
+read Valor BancoAtualValor ICaixa
+print "Ass["
+print AssinaturaAlvo
+print "] = "
+print Valor
+printflush message1
+write 2 cell3 3
+write Valor cell3 1
+write ICaixa cell3 2
+read Leu? cell3 3
+jump 20 notEqual Leu? 0
+write 0 cell3 3
+end
+op add ICaixa ICaixa 1
+jump 9 lessThanEq ICaixa 63
+print "Não existe nenhuma Ass["
+print AssinaturaAlvo
+print "]"
+printflush message1
+write -2 cell3 3
+read Acabou? cell3 3
+jump 31 notEqual Acabou? 0
+write 0 cell3 3
