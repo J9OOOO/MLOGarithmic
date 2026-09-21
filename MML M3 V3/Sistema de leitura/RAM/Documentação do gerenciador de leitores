@@ -1,0 +1,53 @@
+Chamou?:
+Respode foi realizado uma chamada para esse programa
+Se 1, ele foi chamado
+Se não, ele fica esperando
+
+Assinatura:
+Endereço lógico do valor
+Não pode ser 0 por convenção
+
+LeitorInicial:
+Posição inicial do leitor
+O programa começa a ler o sinal de cada leitor pelo 30 exemplo:
+30: leitor 0
+31: leitor 1
+...
+63: leitor N
+Tem um limite de até a posição 63, por causa que é feito pela célula de memória, que só vai até o 63
+
+NLeitores:
+Quantidade de leitores operando na varredura
+
+STotal:
+A soma total dos sinais dos leitores
+
+Limite:
+O valor mínimo na qual o STotal pode ter
+Limite significa quantos leitores não acharam, se nenhum achou, STotal = Limite
+
+LimiteDeSinais:
+A última posição física da célula de memória na qual o programa vai ver
+
+LeitorAgora:
+O leitor na qual o programa está vendo o sinal
+
+SinalDoLeitor:
+O sinal na qual o leitor está
+0: ocioso
+1: foi chamado
+-1: sendo executado
+2: acabou e achou
+-2: acabou e não achou
+
+IBanco:
+Índice lógico do banco de valores que foi retornado pelo leitor que encontrou
+
+ICaixa:
+Índice físico da caixa dentro do banco de valores
+
+Valor:
+O valor da assinatura requisitada
+
+Sinal:
+O sinal da chamada, mesma coisa do SinalDoLeitor só que aplicado para outro tipo de chamada
