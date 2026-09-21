@@ -1,0 +1,42 @@
+read Sinal? cell3 2
+jump 0 notEqual Sinal? 1
+write -1 cell3 2
+read Assinatura cell3 0
+read Valor cell3 1
+wait 0
+wait 0
+write Assinatura cell4 0
+write 1 cell4 3
+read Acabou? cell4 3
+jump 21 strictEqual Acabou? -2
+jump 9 notEqual Acabou? 2
+write 0 cell4 3
+read Caixa cell4 2
+wait 0
+wait 0
+write Valor cell1 Caixa
+write 2 cell3 2
+read Leu? cell3 2
+jump 18 strictEqual Leu? 2
+end
+set Limite 0
+op rand Caixa 63 b
+op round Caixa Caixa b
+read Tem? cell2 Caixa
+jump 34 strictEqual Tem? 0
+op add Limite Limite 1
+jump 22 lessThanEq Limite 40
+print "Sem lugar para escrever"
+printflush message1
+write -2 cell3 2
+read Leu? cell3 2
+jump 31 strictEqual Leu? -2
+end
+write Assinatura cell2 Caixa
+write Valor cell1 Caixa
+write 2 cell3 2
+read Leu? cell3 2
+jump 37 strictEqual Leu? 2
+print "Lugar escrito: "
+print Caixa
+printflush message1
