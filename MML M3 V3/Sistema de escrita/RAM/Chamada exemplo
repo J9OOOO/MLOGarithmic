@@ -1,0 +1,12 @@
+write 124 cell1 0
+write 2 cell1 1
+write 1 cell1 2
+read Acabou? cell1 2
+jump 11 strictEqual Acabou? -2
+jump 3 notEqual Acabou? 2
+write 0 cell1 2
+read Valor cell1 1
+print "Valor: "
+print Valor
+printflush message1
+stop
