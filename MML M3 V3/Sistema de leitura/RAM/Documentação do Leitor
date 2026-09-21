@@ -1,0 +1,50 @@
+LeitorN:
+A posição lógica na qual o leitor coloca seus sinais para o gerenciador de leitores, indo de 0 até 33
+
+Leitor:
+A posição física na qual o leitor coloca seus sinais para o gerenciador de leitores, indo de 30 até 63
+
+Pronto?:
+Se o programa foi chamado
+Se 1, ele executa
+Caso não, ele espera até ser
+
+AssinaturaAlvo:
+Assinatura na qual ele vai procurar dentro dos bancos de memória da assinatura
+
+ICaixa:
+Índice físico da caixa dos bancos atuais vínculados
+Basicamente o lugar físico onde ele vai ler a assinatura e o valor
+
+IAssinatura:
+Índice físico na qual ele vai linkar o banco das assinaturas
+É 2 pois há outros dois periféricos sendo vínculados a ele
+
+IValor:
+Índice físico na qual ele vai linkar o banco de valores
+É IAssinatura + 1 pois a assinatura e valor operam em pares
+Exemplo:
+(0, 1) = (Banco das assinaturas, Banco de valores)
+
+BancoAtualAssinatura:
+O banco de memória físico que corresponde as assinaturas
+
+BancoAtualValor:
+O banco de memória físico que corresponde aos valores das assinaturas
+
+AssinaturaCaixa:
+O valor da assinatura correspondente a caixa lida
+
+IBanco:
+O índice lógico do banco que foi encontrado a assinatura alvo
+
+Valor:
+O valor correspondente a assinatura alvo
+
+Leu?:
+Se o gerenciador de leitores já encerrou
+Se 0, ele para
+Caso não, ele continua esperando
+
+Acabou?
+A mesma coisa que o "Leu?"
