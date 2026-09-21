@@ -1,0 +1,21 @@
+set i 0
+set t0 @time
+write 124 cell1 0
+write i cell1 1
+write 1 cell1 2
+read Acabou? cell1 2
+jump 20 strictEqual Acabou? -2
+jump 5 notEqual Acabou? 2
+write 0 cell1 2
+read Valor cell1 1
+print "Valor: "
+print Valor
+printflush message1
+op add i i 1
+set t1 @time
+op sub dT t1 t0
+print dT
+print " ms"
+printflush message1
+jump 1 always x false
+stop
