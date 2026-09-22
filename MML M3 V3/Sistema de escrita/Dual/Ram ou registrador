@@ -1,0 +1,42 @@
+set RamParaRegis 1
+set Ass 124
+read Pronto? cell1 3
+jump 2 notEqual Pronto? 0
+write Ass cell1 0
+write 1 cell1 3
+read Acabou? cell1 3
+jump 26 strictEqual Acabou? -2
+jump 6 notEqual Acabou? 2
+write 0 cell1 3
+read Valor cell1 1
+wait 0
+wait 0
+wait 0
+read ProntoL? cell1 2
+jump 14 notEqual ProntoL? 0
+write Ass cell4 0
+write Valor cell4 1
+write 1 cell4 2
+read AcabouL? cell4 2
+jump 35 strictEqual AcabouL? -2
+jump 19 notEqual AcabouL? 2
+write 0 cell4 2
+print "Deu certo"
+printflush message1
+stop
+write 0 cell1 3
+wait 0
+print "Erro na leitura da RAM: "
+print "                                                            "
+print "A assinatura ["
+print Ass
+print "] não existe"
+printflush message1
+stop
+wait 0
+write 0 cell4 2
+print "Erro no escritor: "
+print "                                                               "
+print "Sem caixas disponíveis em registrador"
+printflush message1
+stop
