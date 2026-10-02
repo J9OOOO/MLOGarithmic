@@ -1,0 +1,46 @@
+set out 60
+read P? cell2 0
+jump 1 notEqual P? 1
+read Comando cell2 1
+read Arg0 cell2 2
+read Arg1 cell2 3
+read Arg2 cell2 4
+read Arg3 cell2 5
+jump 13 strictEqual Comando 1
+jump 19 strictEqual Comando 2
+jump 25 strictEqual Comando 3
+jump -1 strictEqual Comando 4
+end
+read output cell1 Arg0
+write output cell2 out
+write 2 cell2 0
+read P? cell2 0
+jump 16 notEqual P? 0
+end
+write Arg1 cell1 Arg0
+write 1E+300 cell2 out
+write 2 cell2 0
+read P? cell2 0
+jump 22 notEqual P? 0
+end
+read R1 cell1 Arg2
+read R2 cell1 Arg3
+wait 0
+wait 0
+read ProntoALU? cell3 0
+jump 29 notEqual ProntoALU? 0
+write Arg0 cell3 1
+write Arg2 cell3 2
+write Arg3 cell3 3
+write 1 cell3 0
+read AcabouALU? cell3 0
+jump 35 notEqual AcabouALU? 2
+write 0 cell3 0
+read Resultado cell3 4
+wait 0
+wait 0
+write Resultado cell1 Arg1
+write Resultado cell2 out
+write 2 cell2 0
+read P? cell2 0
+jump 44 notEqual P? 0
