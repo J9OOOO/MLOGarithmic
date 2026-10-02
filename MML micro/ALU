@@ -1,0 +1,46 @@
+read P? cell1 0
+jump 0 notEqual P? 1
+write -1 cell1 0
+read Op cell1 1
+read Arg0 cell1 2
+read Arg1 cell1 3
+jump 15 strictEqual Op 1
+jump 18 strictEqual Op 2
+jump 21 strictEqual Op 3
+jump 24 strictEqual Op 4
+jump 28 strictEqual Op 5
+jump 31 strictEqual Op 6
+jump 34 strictEqual Op 7
+jump 37 strictEqual Op 8
+end
+op add R Arg0 Arg1
+jump 40 always x false
+end
+op sub R Arg0 Arg1
+jump 40 always x false
+end
+op mul R Arg0 Arg1
+jump 40 always x false
+end
+op div R Arg0 Arg1
+jump 43 strictEqual Arg1 0
+jump 40 always x false
+end
+op floor R Arg0 Arg1
+jump 40 always x false
+end
+op abs R Arg0 Arg1
+jump 40 always x false
+end
+op lessThanEq R Arg0 Arg1
+jump 40 always x false
+end
+op greaterThanEq R Arg0 Arg1
+jump 40 always x false
+end
+write R cell1 4
+write 2 cell1 0
+jump 44 always x false
+write -2 cell1 0
+read L? cell1 0
+jump 44 notEqual L? 0
