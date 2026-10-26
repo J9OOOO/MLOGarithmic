@@ -1,0 +1,21 @@
+Operações:
+1: soma
+2: subtração
+3: multiplicação
+4: divisão
+5: raio
+6: ângulo
+7: igualdade restrita
+8: não igual
+9: ln
+10: log em base complexa
+11: exp
+12: potênciação complexa
+13: sqrt
+14: cbrt
+15: sin
+16: cos
+17: tan
+18: asin
+19: acos
+20: atan
