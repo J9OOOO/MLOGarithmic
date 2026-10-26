@@ -1,0 +1,228 @@
+read a cell1 1
+read b cell1 2
+read c cell1 3
+read d cell1 4
+read g cell1 8
+read h cell1 9
+read operador cell1 5
+jump 28 strictEqual operador 1
+jump 40 strictEqual operador 2
+jump 52 strictEqual operador 3
+jump 64 strictEqual operador 4
+jump 76 strictEqual operador 5
+jump 84 strictEqual operador 6
+jump 92 strictEqual operador 7
+jump 104 strictEqual operador 8
+jump 116 strictEqual operador 9
+jump 124 strictEqual operador 10
+jump 137 strictEqual operador 11
+jump 145 strictEqual operador 12
+jump 157 strictEqual operador 13
+jump 165 strictEqual operador 14
+jump 173 strictEqual operador 15
+jump 181 strictEqual operador 16
+jump 189 strictEqual operador 17
+jump 197 strictEqual operador 18
+jump 205 strictEqual operador 19
+jump 213 strictEqual operador 20
+end
+print "("
+print a
+print "+"
+print b
+print "i"
+print ") + ("
+print c
+print "+"
+print d
+print "i)"
+jump 221 always x false
+end
+print "("
+print a
+print "+"
+print b
+print "i"
+print ") - ("
+print c
+print "+"
+print d
+print "i)"
+jump 221 always x false
+end
+print "("
+print a
+print "+"
+print b
+print "i"
+print ") * ("
+print c
+print "+"
+print d
+print "i)"
+jump 221 always x false
+end
+print "("
+print a
+print "+"
+print b
+print "i"
+print ") / ("
+print c
+print "+"
+print d
+print "i)"
+jump 221 always x false
+end
+print "R("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "Theta("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "("
+print a
+print "+"
+print b
+print "i"
+print ") === ("
+print c
+print "+"
+print d
+print "i)"
+jump 221 always x false
+end
+print "("
+print a
+print "+"
+print b
+print "i"
+print ") !== ("
+print c
+print "+"
+print d
+print "i)"
+jump 221 always x false
+end
+print "ln("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "logn_("
+print c
+print "+"
+print d
+print "i)("
+print "i"
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "exp("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "("
+print a
+print "+"
+print b
+print "i"
+print ") ^ ("
+print c
+print "+"
+print d
+print "i)"
+jump 221 always x false
+end
+print "sqrt("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "cbrt("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "sin("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "cos("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "tan("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "asin("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "acos("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print "atan("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 221 always x false
+end
+print " = "
+print "("
+print g
+print "+"
+print h
+print "i)"
+printflush message1
