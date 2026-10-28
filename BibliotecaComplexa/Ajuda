@@ -19,3 +19,9 @@ Operações:
 18: asin
 19: acos
 20: atan
+21: sinh
+22: cosh
+23: tanh
+24: asinh
+25: acosh
+26: atanh
