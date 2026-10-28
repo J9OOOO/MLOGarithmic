@@ -1,0 +1,759 @@
+format "Mesma coisa"
+sensor result block1 @copper
+sensor result block1 @copper
+read Sinal cell1 0
+jump 3 notEqual Sinal 1
+write -1 cell1 0
+read a cell1 1
+read b cell1 2
+read c cell1 3
+read d cell1 4
+read Operador cell1 5
+jump 24 strictEqual Operador 28
+jump 69 strictEqual Operador 29
+jump 117 strictEqual Operador 30
+jump 237 strictEqual Operador 31
+jump 156 strictEqual Operador 32
+jump 428 strictEqual Operador 33
+jump 385 strictEqual Operador 34
+jump 471 strictEqual Operador 35
+jump 590 strictEqual Operador 36
+jump 524 strictEqual Operador 37
+jump 657 strictEqual Operador 38
+jump 718 always Operador 20
+end
+sensor result block1 @copper
+format "Secante sec(a+bi):"
+sensor result block1 @copper
+op mul -a -1 a
+op mul -b -1 b
+format "exp de (-b+ai):"
+format "MALDITO I FDP"
+op pow e^(-b) @e -b
+op mul a a @radToDeg
+op cos Cos(a) a d
+op sin Sin(a) a d
+op mul e^zR e^(-b) Cos(a)
+op mul e^zI e^(-b) Sin(a)
+sensor result block1 @copper
+sensor result block1 @copper
+format "exp de b-ai:"
+op pow e^b @e b
+op mul -a -a @radToDeg
+op cos Cos(-a) -a d
+op sin Sin(-a) -a d
+op mul e^(-z)R e^b Cos(-a)
+op mul e^(-z)I e^b Sin(-a)
+sensor result block1 @copper
+sensor result block1 @copper
+op add R1? e^(-z)R e^zR
+op div R? R1? 2
+op add I1? e^zI e^(-z)I
+op div I? I1? 2
+format "(R?+I?*i)/i"
+format "iR?+I?"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 R? R?
+op mul AbsW1 I? I?
+op add AbsW AbsW0 AbsW1
+set DemR R?
+op mul DemI -1 I?
+op div Sec(z)R DemR AbsW
+op div Sec(z)I DemI AbsW
+sensor result block1 @copper
+set outG Sec(z)R
+set outH Sec(z)I
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Cossecante csc(a+bi):"
+format "csc = 1 / sin"
+sensor result block1 @copper
+op mul -a -1 a
+op mul -b -1 b
+format "exp de (-b+ai):"
+format "MALDITO I FDP"
+op pow e^(-b) @e -b
+op mul a1 a @radToDeg
+op cos Cos(a) a1 d
+op sin Sin(a) a1 d
+op mul e^zR e^(-b) Cos(a)
+op mul e^zI e^(-b) Sin(a)
+sensor result block1 @copper
+sensor result block1 @copper
+format "exp de b-ai:"
+op pow e^b @e b
+op mul -a1 -a @radToDeg
+op cos Cos(-a) -a1 d
+op sin Sin(-a) -a1 d
+op mul e^(-z)R e^b Cos(-a)
+op mul e^(-z)I e^b Sin(-a)
+sensor result block1 @copper
+sensor result block1 @copper
+format "Eu não entendi como isso funcionou, mas funciona"
+op sub R1? e^(-z)R e^zR
+op div I? R1? 2
+op sub I1? e^zI e^(-z)I
+op div R? I1? 2
+format "(R?+I?*i)/i"
+format "iR?+I?"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 R? R?
+op mul AbsW1 I? I?
+op add AbsW AbsW0 AbsW1
+set DemR R?
+op mul DemI -1 I?
+op div Csc(z)R DemR AbsW
+op div Csc(z)I DemI AbsW
+sensor result block1 @copper
+sensor result block1 @copper
+set outG Csc(z)R
+set outH Csc(z)I
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Cotangente cot(a+bi):"
+op mul 2a 2 a
+op mul 2b 2 b
+op mul -2a -1 2a
+op mul -2b -1 2b
+format "sinh(2b)"
+op pow e^2b @e 2b
+op pow e^(-2b) @e -2b
+op sub e^2b-e^(-2b) e^2b e^(-2b)
+op div sinh(2b) e^2b-e^(-2b) 2
+format "cosh(2b)"
+op pow e^2b @e 2b
+op pow e^(-2b) @e -2b
+op add e^2b+e^(-2b) e^2b e^(-2b)
+op div cosh(2b) e^2b+e^(-2b) 2
+format "Aqui é mais fácil, só sin(2a)/(cos(2a)+cosh(2b)):"
+op mul 2a 2a @radToDeg
+op sin sin(2a) 2a @radToDeg
+op cos cos(2a) 2a @radToDeg
+op add dem cos(2a) cosh(2b)
+op div R? sin(2a) dem
+op div I? sinh(2b) dem
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 R? R?
+op mul AbsW1 I? I?
+op add AbsW AbsW0 AbsW1
+set DemR R?
+op mul DemI -1 I?
+op div Cot(z)R DemR AbsW
+op div Cot(z)I DemI AbsW
+sensor result block1 @copper
+set outG Cot(z)R
+set outH Cot(z)I
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Arco cossecante acsc(a+bi):"
+jump -1 always T null
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 a a
+op mul AbsW1 b b
+op add AbsW AbsW0 AbsW1
+set DemR a
+op mul DemI -1 b
+op div a DemR AbsW
+op div b DemI AbsW
+sensor result block1 @copper
+op mul a^2 a a
+op mul b^2 b b
+op sub Rz^2 a^2 b^2
+op mul ab a b
+op mul 2ab 2 ab
+format "1 - z^2"
+format "1 - z^2R - (z^2I)i"
+format "1 - a^2 - b^2 - (2ab)i"
+op sub z^2-1R 1 Rz^2
+op mul z^2-1I -1 2ab
+sensor result block1 @copper
+sensor result block1 @copper
+format "Raiz quadrada sqrt(a+bi):"
+sensor result block1 @copper
+op angle ThetaZ z^2-1R z^2-1I
+format "Pelo visto tem que normalizar isso para dar certo..."
+jump 187 lessThanEq ThetaZ 180
+op sub ThetaZ ThetaZ 360
+format "Eu não sei..."
+format "ERA MESMO AEEEEEEEEEEEEEEEEEEE"
+op mul ThetaZ ThetaZ @degToRad
+op mul RZ0 z^2-1R z^2-1R
+op mul RZ1 z^2-1I z^2-1I
+op add RZ2 RZ0 RZ1
+op sqrt RZ RZ2 b
+op sqrt sqrt(RZ) RZ 0.5
+op mul RY sqrt(RZ) 1
+format "Raio feito, pronto, agora o ângulo"
+op log ln(RZ) RZ null
+op mul c*ThetaZ 0.5 ThetaZ
+op mul c*ThetaZ c*ThetaZ @radToDeg
+op cos Cos(ThetaY) c*ThetaZ null
+op sin Sin(ThetaY) c*ThetaZ null
+op mul sqrt(z^2-1)R RY Cos(ThetaY)
+op mul sqrt(z^2-1)I RY Sin(ThetaY)
+sensor result block1 @copper
+op mul IZR -1 b
+set IZI a
+sensor result block1 @copper
+op add zi+sqrt(z^2-1)R IZR sqrt(z^2-1)R
+op add zi+sqrt(z^2-1)I IZI sqrt(z^2-1)I
+sensor result block1 @copper
+sensor result block1 @copper
+format "Ln de (a+bi):"
+format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
+op mul AbsA zi+sqrt(z^2-1)R zi+sqrt(z^2-1)R
+op mul AbsB zi+sqrt(z^2-1)I zi+sqrt(z^2-1)I
+op add AbsZ AbsA AbsB
+op log ln(AbsZ) AbsZ AbsB
+op angle Theta zi+sqrt(z^2-1)R zi+sqrt(z^2-1)I
+jump 221 lessThanEq Theta 180
+op sub Theta Theta 360
+op mul Theta Theta @degToRad
+op mul ln(zi+sqrt(z^2-1)R) 0.5 ln(AbsZ)
+set ln(zi+sqrt(z^2-1)I) Theta
+sensor result block1 @copper
+format "Quase tudo feito..."
+format "Só falta multiplicar por -i"
+format "- iz = - i * (a + bi) = b - ai"
+format "FINJA QUE EU NÃO TROQUEI 1-z^2 POR z^2-1 NOS NOMES DAS VARIÁVEIS"
+format "k maldito..."
+set outG ln(zi+sqrt(z^2-1)I)
+op mul outH -1 ln(zi+sqrt(z^2-1)R)
+sensor result block1 @copper
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Arco secante asec(a+bi):"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 a a
+op mul AbsW1 b b
+op add AbsW AbsW0 AbsW1
+set DemR a
+op mul DemI -1 b
+op div a DemR AbsW
+op div b DemI AbsW
+sensor result block1 @copper
+op mul a^2 a a
+op mul b^2 b b
+op sub Rz^2 a^2 b^2
+op mul ab a b
+op mul 2ab 2 ab
+format "1 - z^2"
+format "1 - z^2R - (z^2I)i"
+format "1 - a^2 - b^2 - (2ab)i"
+op sub z^2-1R 1 Rz^2
+op mul z^2-1I -1 2ab
+sensor result block1 @copper
+sensor result block1 @copper
+format "Raiz quadrada sqrt(a+bi):"
+sensor result block1 @copper
+op angle ThetaZ z^2-1R z^2-1I
+format "Pelo visto tem que normalizar isso para dar certo..."
+jump 267 lessThanEq ThetaZ 180
+op sub ThetaZ ThetaZ 360
+format "Eu não sei..."
+format "ERA MESMO AEEEEEEEEEEEEEEEEEEE"
+op mul ThetaZ ThetaZ @degToRad
+op mul RZ0 z^2-1R z^2-1R
+op mul RZ1 z^2-1I z^2-1I
+op add RZ2 RZ0 RZ1
+op sqrt RZ RZ2 b
+op sqrt sqrt(RZ) RZ 0.5
+op mul RY sqrt(RZ) 1
+format "Raio feito, pronto, agora o ângulo"
+op log ln(RZ) RZ null
+op mul c*ThetaZ 0.5 ThetaZ
+set ThetaY c*ThetaZ
+op mul ThetaY ThetaY @radToDeg
+op cos Cos(ThetaY) ThetaY null
+op sin Sin(ThetaY) ThetaY null
+op mul sqrt(z^2-1)R RY Cos(ThetaY)
+op mul sqrt(z^2-1)I RY Sin(ThetaY)
+sensor result block1 @copper
+op mul IZR -1 b
+set IZI a
+sensor result block1 @copper
+op add zi+sqrt(z^2-1)R IZR sqrt(z^2-1)R
+op add zi+sqrt(z^2-1)I IZI sqrt(z^2-1)I
+sensor result block1 @copper
+sensor result block1 @copper
+format "Ln de (a+bi):"
+format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
+op mul AbsA zi+sqrt(z^2-1)R zi+sqrt(z^2-1)R
+op mul AbsB zi+sqrt(z^2-1)I zi+sqrt(z^2-1)I
+op add AbsZ AbsA AbsB
+op log ln(AbsZ) AbsZ AbsB
+op angle Theta zi+sqrt(z^2-1)R zi+sqrt(z^2-1)I
+jump 302 lessThanEq Theta 180
+op sub Theta Theta 360
+op mul Theta Theta @degToRad
+op mul ln(zi+sqrt(z^2-1)R) 0.5 ln(AbsZ)
+set ln(zi+sqrt(z^2-1)I) Theta
+sensor result block1 @copper
+format "Quase tudo feito..."
+format "Só falta multiplicar por -i"
+format "- iz = - i * (a + bi) = b - ai"
+format "FINJA QUE EU NÃO TROQUEI 1-z^2 POR z^2-1 NOS NOMES DAS VARIÁVEIS"
+format "k maldito..."
+format 'i_*_(a_+_bi)_=_-_b_+_ai
+op div pi/2 @pi 2
+op sub outG pi/2 ln(zi+sqrt(z^2-1)I)
+op mul outH 1 ln(zi+sqrt(z^2-1)R)
+sensor result block1 @copper
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Arco cotangente acot(a+bi):"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 a a
+op mul AbsW1 b b
+op add AbsW AbsW0 AbsW1
+set DemR a
+op mul DemI -1 b
+op div a DemR AbsW
+op div b DemI AbsW
+sensor result block1 @copper
+format "iz = i * (a + bi) = - b + ai"
+op mul IZR -1 b
+set IZI a
+format "1+iz"
+op add 1+izR 1 IZR
+set 1+izI IZI
+format "1-iz"
+op sub 1-izR 1 IZR
+op mul 1-izI -1 IZI
+format "(a+bi) = 1 + iz"
+format "(c+di) = 1 - iz"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 1-izR 1-izR
+op mul AbsW1 1-izI 1-izI
+op add AbsW AbsW0 AbsW1
+op mul DemR0 1+izR 1-izR
+op mul DemR1 1+izI 1-izI
+op add DemR DemR0 DemR1
+op mul DemI0 1+izI 1-izR
+op mul DemI1 1+izR 1-izI
+op sub DemI DemI0 DemI1
+op div (1+iz)/(1-iz)R DemR AbsW
+op div (1+iz)/(1-iz)I DemI AbsW
+sensor result block1 @copper
+format "Agora o ln..."
+format "a = (1+iz)/(1-iz)R"
+format "b = (1+iz)/(1-iz)I"
+sensor result block1 @copper
+format "Ln de (a+bi):"
+format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
+op mul AbsA (1+iz)/(1-iz)R (1+iz)/(1-iz)R
+op mul AbsB (1+iz)/(1-iz)I (1+iz)/(1-iz)I
+op add AbsZ AbsA AbsB
+op log ln(AbsZ) AbsZ AbsB
+op angle Theta (1+iz)/(1-iz)R (1+iz)/(1-iz)I
+jump 370 lessThanEq Theta 180
+op sub Theta Theta 360
+op mul Theta Theta @degToRad
+op mul ln((1+iz)/(1-iz))R 0.5 ln(AbsZ)
+set ln((1+iz)/(1-iz))I Theta
+sensor result block1 @copper
+format "Agora multiplicar por - i / 2"
+format "Eu abstraí o ln((1+iz)/(1-iz)) para não atrapalhar a leitura, troquei só por '...'"
+op mul ln(...)/2R 0.5 ln((1+iz)/(1-iz))R
+op mul ln(...)/2I 0.5 ln((1+iz)/(1-iz))I
+set outG ln(...)/2I
+op mul outH -1 ln(...)/2R
+format "Veja isso depois, alterei sem querer"
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Cossecante hiperbólica csch(a+bi)"
+format "z = a + bi"
+sensor result block1 @copper
+format "exp de (a+bi):"
+op pow e^a @e a
+op mul b1 b @radToDeg
+op cos Cos(b) b1 d
+op sin Sin(b) b1 d
+op mul e^zR e^a Cos(b)
+op mul e^zI e^a Sin(b)
+sensor result block1 @copper
+format "- z = - a - bi"
+op mul -a -1 a
+op mul -b -1 b
+sensor result block1 @copper
+format "exp de (a+bi):"
+op pow e^(-a) @e -a
+op mul -b1 -b @radToDeg
+op cos Cos(-b) -b1 d
+op sin Sin(-b) -b1 d
+op mul e^(-z)R e^(-a) Cos(-b)
+op mul e^(-z)I e^(-a) Sin(-b)
+sensor result block1 @copper
+op sub e^z-e^(-z)R e^zR e^(-z)R
+op sub e^z-e^(-z)I e^zI e^(-z)I
+op div sinh(z)R e^z-e^(-z)R 2
+op div sinh(z)I e^z-e^(-z)I 2
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 sinh(z)R sinh(z)R
+op mul AbsW1 sinh(z)I sinh(z)I
+op add AbsW AbsW0 AbsW1
+set DemR sinh(z)R
+op mul DemI -1 sinh(z)I
+op div outG DemR AbsW
+op div outH DemI AbsW
+sensor result block1 @copper
+format "Meu Deus, o limite é de 1000 linhas..."
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Secante hiperbólica sech(a+bi)"
+format "z = a + bi"
+sensor result block1 @copper
+format "exp de (a+bi):"
+op pow e^a @e a
+op mul b1 b @radToDeg
+op cos Cos(b) b1 d
+op sin Sin(b) b1 d
+op mul e^zR e^a Cos(b)
+op mul e^zI e^a Sin(b)
+sensor result block1 @copper
+format "- z = - a - bi"
+op mul -a -1 a
+op mul -b -1 b
+sensor result block1 @copper
+format "exp de (a+bi):"
+op pow e^(-a) @e -a
+op mul -b1 -b @radToDeg
+op cos Cos(-b) -b1 d
+op sin Sin(-b) -b1 d
+op mul e^(-z)R e^(-a) Cos(-b)
+op mul e^(-z)I e^(-a) Sin(-b)
+sensor result block1 @copper
+op add e^z+e^(-z)R e^zR e^(-z)R
+op add e^z+e^(-z)I e^zI e^(-z)I
+op div cosh(z)R e^z+e^(-z)R 2
+op div cosh(z)I e^z+e^(-z)I 2
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 cosh(z)R cosh(z)R
+op mul AbsW1 cosh(z)I cosh(z)I
+op add AbsW AbsW0 AbsW1
+set DemR cosh(z)R
+op mul DemI -1 cosh(z)I
+op div outG DemR AbsW
+op div outH DemI AbsW
+sensor result block1 @copper
+format "Meu Deus, o limite é de 1000 linhas..."
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Cotangente hiperbólica coth(a+bi)"
+format "z = a + bi"
+op mul 2a 2 a
+op mul 2b 2 b
+sensor result block1 @copper
+format "exp de 2*(a+bi):"
+op pow e^a @e 2a
+op mul b1 2b @radToDeg
+op cos Cos(b) b1 d
+op sin Sin(b) b1 d
+op mul e^2zR e^a Cos(b)
+op mul e^2zI e^a Sin(b)
+sensor result block1 @copper
+op add e^2z+1R e^2zR 1
+op add e^2z+1I e^2zI 0
+sensor result block1 @copper
+op sub e^2z-1R e^2zR 1
+op sub e^2z-1I e^2zI 0
+sensor result block1 @copper
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+format "e^2z-1R + e^2z-1Ii"
+format "e^2z+1R + e^2z+1Ii"
+op mul AbsW0 e^2z+1R e^2z+1R
+op mul AbsW1 e^2z+1I e^2z+1I
+op add AbsW AbsW0 AbsW1
+op mul DemR0 e^2z-1R e^2z+1R
+op mul DemR1 e^2z-1I e^2z+1I
+op add DemR DemR0 DemR1
+op mul DemI0 e^2z-1I e^2z+1R
+op mul DemI1 e^2z-1R e^2z+1I
+op sub DemI DemI0 DemI1
+op div tanh(z)R DemR AbsW
+op div tanh(z)I DemI AbsW
+sensor result block1 @copper
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 tanh(z)R tanh(z)R
+op mul AbsW1 tanh(z)I tanh(z)I
+op add AbsW AbsW0 AbsW1
+set DemR tanh(z)R
+op mul DemI -1 tanh(z)I
+op div outG DemR AbsW
+op div outH DemI AbsW
+sensor result block1 @copper
+sensor result block1 @copper
+format "- z = - a - bi"
+format "Meu Deus, o limite é de 1000 linhas..."
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Arco cossecante hiperbólica acsch(a+bi):"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 a a
+op mul AbsW1 b b
+op add AbsW AbsW0 AbsW1
+set DemR a
+op mul DemI -1 b
+op div a DemR AbsW
+op div b DemI AbsW
+sensor result block1 @copper
+op mul a^2 a a
+op mul b^2 b b
+op sub Rz^2 a^2 b^2
+op mul ab a b
+op mul 2ab 2 ab
+op add z^2+1R 1 Rz^2
+op mul z^2+1I 1 2ab
+sensor result block1 @copper
+sensor result block1 @copper
+format "Raiz quadrada sqrt(a+bi):"
+sensor result block1 @copper
+op angle ThetaZ z^2+1R z^2+1I
+format "Pelo visto tem que normalizar isso para dar certo..."
+jump 551 lessThanEq ThetaZ 180
+op sub ThetaZ ThetaZ 360
+op mul ThetaZ ThetaZ @degToRad
+format "Pqp, eu vou reescrever essa radiciação por completo"
+format "abs(z)^1/2*(cos(theta)+isin(theta)"
+op mul RY0 z^2+1R z^2+1R
+op mul RY1 z^2+1I z^2+1I
+op add RY2 RY0 RY1
+op sqrt RY RY2 RY1
+op sqrt RY RY RY1
+format "abs(z)^1/2"
+op div ThetaZ/2 ThetaZ 2
+op mul ThetaZ/2 ThetaZ/2 @radToDeg
+op cos Cos(ThetaZ/2) ThetaZ/2 null
+op sin Sin(ThetaZ/2) ThetaZ/2 null
+op mul sqrt(z^2+1)R RY Cos(ThetaZ/2)
+op mul sqrt(z^2+1)I RY Sin(ThetaZ/2)
+op add zi+sqrt(z^2+1)R a sqrt(z^2+1)R
+op add zi+sqrt(z^2+1)I b sqrt(z^2+1)I
+sensor result block1 @copper
+sensor result block1 @copper
+format "Ln de (a+bi):"
+format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
+op mul AbsA zi+sqrt(z^2+1)R zi+sqrt(z^2+1)R
+op mul AbsB zi+sqrt(z^2+1)I zi+sqrt(z^2+1)I
+op add AbsZ AbsA AbsB
+op log ln(AbsZ) AbsZ AbsB
+op angle Theta zi+sqrt(z^2+1)R zi+sqrt(z^2+1)I
+jump 579 lessThanEq Theta 180
+op sub Theta Theta 360
+op mul Theta Theta @degToRad
+op mul ln(zi+sqrt(z^2+1)R) 0.5 ln(AbsZ)
+set ln(zi+sqrt(z^2+1)I) Theta
+sensor result block1 @copper
+set outG ln(zi+sqrt(z^2+1)R)
+op mul outH ln(zi+sqrt(z^2+1)I) 1
+sensor result block1 @copper
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Arco secante hiperbólica asech(a+bi):"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 a a
+op mul AbsW1 b b
+op add AbsW AbsW0 AbsW1
+set DemR a
+op mul DemI -1 b
+op div a DemR AbsW
+op div b DemI AbsW
+sensor result block1 @copper
+format "O corpo é ln(z+sqrt(z^2-1))"
+op mul a^2 a a
+op mul b^2 b b
+op sub Rz^2 a^2 b^2
+op mul ab a b
+op mul 2ab 2 ab
+op sub z^2-1R Rz^2 1
+op mul z^2-1I 1 2ab
+sensor result block1 @copper
+sensor result block1 @copper
+format "Raiz quadrada sqrt(a+bi):"
+sensor result block1 @copper
+op angle ThetaZ z^2-1R z^2-1I
+format "Pelo visto tem que normalizar isso para dar certo..."
+jump 618 lessThanEq ThetaZ 180
+op sub ThetaZ ThetaZ 360
+op mul ThetaZ ThetaZ @degToRad
+format "Pqp, eu vou reescrever essa radiciação por completo"
+format "abs(z)^1/2*(cos(theta)+isin(theta)"
+op mul RY0 z^2-1R z^2-1R
+op mul RY1 z^2-1I z^2-1I
+op add RY2 RY0 RY1
+op sqrt RY RY2 RY1
+op sqrt RY RY RY1
+format "abs(z)^1/2"
+op div ThetaZ/2 ThetaZ 2
+op mul ThetaZ/2 ThetaZ/2 @radToDeg
+op cos Cos(ThetaZ/2) ThetaZ/2 null
+op sin Sin(ThetaZ/2) ThetaZ/2 null
+op mul sqrt(z^2-1)R RY Cos(ThetaZ/2)
+op mul sqrt(z^2-1)I RY Sin(ThetaZ/2)
+op add z+sqrt(z^2-1)R a sqrt(z^2-1)R
+op add z+sqrt(z^2-1)I b sqrt(z^2-1)I
+sensor result block1 @copper
+sensor result block1 @copper
+format "Ln de (a+bi):"
+format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
+op mul AbsA z+sqrt(z^2-1)R z+sqrt(z^2-1)R
+op mul AbsB z+sqrt(z^2-1)I z+sqrt(z^2-1)I
+op add AbsZ AbsA AbsB
+op log ln(AbsZ) AbsZ AbsB
+op angle Theta z+sqrt(z^2-1)R z+sqrt(z^2-1)I
+jump 646 lessThanEq Theta 180
+op sub Theta Theta 360
+op mul Theta Theta @degToRad
+op mul ln(z+sqrt(z^2-1)R) 0.5 ln(AbsZ)
+set ln(z+sqrt(z^2-1)I) Theta
+sensor result block1 @copper
+set outG ln(z+sqrt(z^2-1)R)
+set outH ln(z+sqrt(z^2-1)I)
+sensor result block1 @copper
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Arco cotangente hiperbólica acoth(a+bi):"
+sensor result block1 @copper
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 a a
+op mul AbsW1 b b
+op add AbsW AbsW0 AbsW1
+set DemR a
+op mul DemI -1 b
+op div a DemR AbsW
+op div b DemI AbsW
+sensor result block1 @copper
+format "1+z"
+op add 1+zR 1 a
+set 1+zI b
+format "1-z"
+format "(a+bi) = 1 - z"
+format "(c+di) = 1 + z"
+sensor result block1 @copper
+op sub 1-zR 1 a
+op mul 1-zI -1 b
+format "Divisão (a+bi) / (c+di):"
+op mul AbsW0 1-zR 1-zR
+op mul AbsW1 1-zI 1-zI
+op add AbsW AbsW0 AbsW1
+op mul DemR0 1+zR 1-zR
+op mul DemR1 1+zI 1-zI
+op add DemR DemR0 DemR1
+op mul DemI0 1+zI 1-zR
+op mul DemI1 1+zR 1-zI
+op sub DemI DemI0 DemI1
+op div (1+z)/(1-z)R DemR AbsW
+op div (1+z)/(1-z)I DemI AbsW
+sensor result block1 @copper
+format "Agora o ln..."
+format "a = (1+z)/(1-z)R"
+format "b = (1+z)/(1-z)I"
+sensor result block1 @copper
+format "Ln de (a+bi):"
+format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
+op mul AbsA (1+z)/(1-z)R (1+z)/(1-z)R
+op mul AbsB (1+z)/(1-z)I (1+z)/(1-z)I
+op add AbsZ AbsA AbsB
+op log ln(AbsZ) AbsZ AbsB
+op angle Theta (1+z)/(1-z)R (1+z)/(1-z)I
+jump 704 lessThanEq Theta 180
+op sub Theta Theta 360
+op mul Theta Theta @degToRad
+op mul ln((1+z)/(1-z))R 0.5 ln(AbsZ)
+set ln((1+z)/(1-z))I Theta
+sensor result block1 @copper
+format "Eu abstraí o ln((1+z)/(1-z)) para não atrapalhar a leitura, troquei só por '...'"
+op mul ln(...)/2R 0.5 ln((1+z)/(1-z))R
+op mul ln(...)/2I 0.5 ln((1+z)/(1-z))I
+set outG ln(...)/2R
+set outH ln(...)/2I
+format "Veja isso depois, alterei sem querer"
+sensor result block1 @copper
+jump 740 always T null
+end
+end
+sensor result block1 @copper
+format "Os erros ficam aqui"
+format "null === algo deu errado"
+write -2 cell1 0
+print "Erro de operação, veja o que você inseriu:"
+print "                                                                "
+print "a b c d operador"
+print "                                                                "
+print a
+print " "
+print b
+print " "
+print c
+print " "
+print d
+print " "
+print Operador
+printflush message1
+read Leu? cell1 0
+jump 736 strictEqual Leu? -2
+sensor result block1 @copper
+end
+sensor result block1 @copper
+format "Se deu tudo certo fica aqui:"
+format "Verificação final, só caso dê errado algo"
+jump 718 strictEqual outG null
+jump 718 strictEqual outH null
+write outG cell1 8
+write outH cell1 9
+write 2 cell1 0
+print "Não se preocupe, deu tudo certo"
+printflush message1
+print outG
+print "+"
+print outH
+print "i"
+printflush message2
+read Leu? cell1 0
+jump 755 strictEqual Leu? 2
+sensor result block1 @copper
+end
