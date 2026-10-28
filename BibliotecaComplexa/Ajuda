@@ -25,3 +25,18 @@ Operações:
 24: asinh
 25: acosh
 26: atanh
+
+(DLC):
+Operações:
+27: sec
+28: csc
+29: cot
+30: asec
+31: acsc
+32: acot
+33: sech
+34: csch
+35: coth
+36: asech
+37: acsch
+38: acoth
