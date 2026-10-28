@@ -1,0 +1,216 @@
+set T 1
+print "PROCESSANDO"
+printflush message2
+print ""
+printflush message4
+draw clear 0 0 0 0 0 0
+drawflush display1
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+format "Operação:"
+format "arcsin(1)"
+set Ra 1.57079633
+set Rb 0
+write 1 cell1 1
+write 0 cell1 2
+write 0 cell1 3
+write 0 cell1 4
+write 18 cell1 5
+write 1 cell1 0
+read Acabou? cell1 0
+jump 21 notEqual Acabou? 2
+read g cell1 8
+read h cell1 9
+print g
+print " + "
+print h
+print "i"
+printflush message1
+print Ra
+print " + "
+print Rb
+print "i"
+printflush message3
+write 0 cell1 0
+op sub Dr Ra g
+op sub Di Rb h
+op abs Dr Dr g
+op abs Di Di g
+jump 196 greaterThan Dr 1e-5
+jump 196 greaterThan Di 1e-5
+wait T
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+format "Operação:"
+format "arcsin(1+i)"
+set Ra 0.66623943
+set Rb 1.06127506
+write 1 cell1 1
+write 1 cell1 2
+write 0 cell1 3
+write 0 cell1 4
+write 18 cell1 5
+write 1 cell1 0
+read Acabou? cell1 0
+jump 57 notEqual Acabou? 2
+read g cell1 8
+read h cell1 9
+print g
+print " + "
+print h
+print "i"
+printflush message1
+print Ra
+print " + "
+print Rb
+print "i"
+printflush message3
+write 0 cell1 0
+op sub Dr Ra g
+op sub Di Rb h
+op abs Dr Dr g
+op abs Di Di g
+jump 196 greaterThan Dr 1e-5
+jump 196 greaterThan Di 1e-5
+wait T
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+format "Operação:"
+format "z/z"
+set Ra 1
+set Rb 0
+write 1 cell1 1
+write 1 cell1 2
+write 1 cell1 3
+write 1 cell1 4
+write 4 cell1 5
+write 1 cell1 0
+read Acabou? cell1 0
+jump 93 notEqual Acabou? 2
+read g cell1 8
+read h cell1 9
+print g
+print " + "
+print h
+print "i"
+printflush message1
+print Ra
+print " + "
+print Rb
+print "i"
+printflush message3
+write 0 cell1 0
+op sub Dr Ra g
+op sub Di Rb h
+op abs Dr Dr g
+op abs Di Di g
+jump 196 greaterThan Dr 1e-5
+jump 196 greaterThan Di 1e-5
+wait T
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+format "Operação:"
+format "sin(-1-2i)"
+set Ra -3.16577851
+set Rb -1.95960104
+write -1 cell1 1
+write -2 cell1 2
+write 0 cell1 3
+write 0 cell1 4
+write 15 cell1 5
+write 1 cell1 0
+read Acabou? cell1 0
+jump 129 notEqual Acabou? 2
+read g cell1 8
+read h cell1 9
+print g
+print " + "
+print h
+print "i"
+printflush message1
+print Ra
+print " + "
+print Rb
+print "i"
+printflush message3
+write 0 cell1 0
+op sub Dr Ra g
+op sub Di Rb h
+op abs Dr Dr g
+op abs Di Di g
+jump 196 greaterThan Dr 1e-5
+jump 196 greaterThan Di 1e-5
+wait T
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+format "Operação:"
+format "cos(-1-2i)"
+set Ra 2.03272301
+set Rb -3.0518978
+write -1 cell1 1
+write -2 cell1 2
+write 0 cell1 3
+write 0 cell1 4
+write 16 cell1 5
+write 1 cell1 0
+read Acabou? cell1 0
+jump 165 notEqual Acabou? 2
+read g cell1 8
+read h cell1 9
+print g
+print " + "
+print h
+print "i"
+printflush message1
+print Ra
+print " + "
+print Rb
+print "i"
+printflush message3
+write 0 cell1 0
+op sub Dr Ra g
+op sub Di Rb h
+op abs Dr Dr g
+op abs Di Di g
+jump 196 greaterThan Dr 1e-5
+jump 196 greaterThan Di 1e-5
+wait T
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+sensor result block1 @copper
+print "SUCESSO"
+printflush message2
+draw clear 0 255 0 0 0 0
+drawflush display1
+stop
+print "Dr: "
+print Dr
+print "                                                                         "
+print "Di: "
+print Di
+printflush message4
+draw clear 255 0 0 0 0 0
+drawflush display1
+draw clear 0 0 0 0 0 0
+drawflush display1
+print "ERRO"
+printflush message2
+print "ERRO."
+printflush message2
+print "ERRO.."
+printflush message2
+print "ERRO..."
+printflush message2
+jump 202 always x false
+stop
