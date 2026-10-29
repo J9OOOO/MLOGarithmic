@@ -25,40 +25,41 @@ read b cell1 2
 read c cell1 3
 read d cell1 4
 read Operador cell1 5
-jump 55 strictEqual Operador 1
-jump 63 strictEqual Operador 2
-jump 71 strictEqual Operador 3
-jump 83 strictEqual Operador 4
-jump 100 strictEqual Operador 5
-jump 111 strictEqual Operador 6
-jump 120 strictEqual Operador 7
-jump 131 strictEqual Operador 8
-jump 142 strictEqual Operador 9
-jump 159 strictEqual Operador 10
-jump 202 strictEqual Operador 11
-jump 215 strictEqual Operador 12
-jump 265 strictEqual Operador 13
-jump 293 strictEqual Operador 14
-jump 321 strictEqual Operador 15
-jump 356 strictEqual Operador 16
-jump 391 strictEqual Operador 17
-jump 419 strictEqual Operador 18
-jump 493 strictEqual Operador 19
-jump 571 strictEqual Operador 20
-jump 626 strictEqual Operador 21
-jump 659 strictEqual Operador 22
-jump 692 strictEqual Operador 23
-jump 735 strictEqual Operador 24
-jump 796 strictEqual Operador 25
-jump 857 strictEqual Operador 26
-jump 908 always Operador 20
+jump 56 strictEqual Operador 1
+jump 64 strictEqual Operador 2
+jump 72 strictEqual Operador 3
+jump 84 strictEqual Operador 4
+jump 105 strictEqual Operador 5
+jump 116 strictEqual Operador 6
+jump 125 strictEqual Operador 7
+jump 136 strictEqual Operador 8
+jump 147 strictEqual Operador 9
+jump 167 strictEqual Operador 10
+jump 217 strictEqual Operador 11
+jump 230 strictEqual Operador 12
+jump 283 strictEqual Operador 13
+jump 322 strictEqual Operador 14
+jump 358 strictEqual Operador 15
+jump 393 strictEqual Operador 16
+jump 428 strictEqual Operador 17
+jump 456 strictEqual Operador 18
+jump 524 strictEqual Operador 19
+jump 597 strictEqual Operador 20
+jump 659 strictEqual Operador 21
+jump 692 strictEqual Operador 22
+jump 725 strictEqual Operador 23
+jump 768 strictEqual Operador 24
+jump 828 strictEqual Operador 25
+jump 887 strictEqual Operador 26
+jump 937 strictEqual Operador 27
+jump 945 always Operador 20
 end
 sensor result block1 @copper
 format "Soma (a+bi) + (c+di):"
 op add outG a c
 op add outH b d
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -66,7 +67,7 @@ format "Subtração (a+bi) - (c+di):"
 op sub outG a c
 op sub outH b d
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -78,7 +79,7 @@ op mul outH0 a d
 op mul outH1 b c
 op add outH outH0 outH1
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -95,7 +96,11 @@ op sub DemI DemI0 DemI1
 op div outG DemR AbsW
 op div outH DemI AbsW
 sensor result block1 @copper
-jump 930 always T null
+ubind null
+jump 945 strictEqual outG null
+jump 945 strictEqual outH null
+ubind null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -106,7 +111,7 @@ op add AbsZ AbsA AbsB
 op sqrt outG AbsZ AbsB
 set outH 0
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -115,7 +120,7 @@ op angle outG a b
 op mul outG outG @degToRad
 set outH 0
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -126,7 +131,7 @@ op land Igual? EqReal EqImag
 set outG Igual?
 set outH 0
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -137,7 +142,7 @@ op or Diferente? NEqReal NEqImag
 set outG Diferente?
 set outH 0
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -148,25 +153,32 @@ op mul AbsB b b
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
 op angle Theta a b
-jump 152 lessThanEq Theta 180
+jump 157 lessThanEq Theta 180
 op sub Theta Theta 360
 op mul Theta Theta @degToRad
+ubind null
+jump 945 strictEqual ln(AbsZ) null
+ubind null
 op mul outG 0.5 ln(AbsZ)
 set outH Theta
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
 format "log de (a+bi) na base (c+di):"
 format "MERMÃO..."
 format "Debuggar isso vai ser o inferno..."
+format "Eu estava certo..."
 op mul AbsA a a
 op mul AbsB b b
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
+ubind null
+jump 945 strictEqual ln(AbsZ) null
+ubind null
 op angle ThetaZ a b
-jump 170 lessThanEq ThetaZ 180
+jump 182 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
 op mul ThetaZ ThetaZ @degToRad
 op mul LnZReal 0.5 ln(AbsZ)
@@ -176,8 +188,11 @@ op mul AbsC c c
 op mul AbsD d d
 op add AbsW AbsC AbsD
 op log ln(AbsW) AbsW AbsB
+ubind null
+jump 945 strictEqual ln(AbsW) null
+ubind null
 op angle ThetaW c d
-jump 181 lessThanEq ThetaW 180
+jump 196 lessThanEq ThetaW 180
 op sub ThetaW ThetaW 360
 op mul ThetaW ThetaW @degToRad
 op mul LnWReal 0.5 ln(AbsW)
@@ -197,7 +212,7 @@ op sub DemI DemI0 DemI1
 op div outG DemR AbsW
 op div outH DemI AbsW
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -210,7 +225,7 @@ op sin Sin(bDeg) bDeg d
 op mul outG e^a Cos(bDeg)
 op mul outH e^a Sin(bDeg)
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -229,14 +244,14 @@ op land W=Possível c>0 d=0
 op or !W=Possível c<=0 d!=0
 op land Caso(0^w) EqAB0 W=Possível
 op land CasoQueDaErrado EqAB0 !W=Possível
-jump 908 strictEqual CasoQueDaErrado 1
-jump 236 notEqual Caso(0^w) 1
+jump 945 strictEqual CasoQueDaErrado 1
+jump 251 notEqual Caso(0^w) 1
 set outG 0
 set outH 0
-jump 262 always Caso(0^w) 1
+jump 280 always Caso(0^w) 1
 sensor result block1 @copper
 op angle ThetaZ a b
-jump 240 lessThanEq ThetaZ 180
+jump 255 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
 op mul ThetaZ ThetaZ @degToRad
 op mul RZ0 a a
@@ -250,6 +265,9 @@ op pow e^(-ThetaZ*d) @e -ThetaZ*d
 op mul RY RZ^c e^(-ThetaZ*d)
 format "Raio feito, pronto, agora o ângulo"
 op log ln(RZ) RZ null
+ubind null
+jump 945 strictEqual ln(RZ) null
+ubind null
 op mul d*ln(RZ) d ln(RZ)
 op mul c*ThetaZ c ThetaZ
 op add c*ThetaZ+d*ln(RZ) c*ThetaZ d*ln(RZ)
@@ -260,14 +278,14 @@ op sin Sin(ThetaY) ThetaY null
 op mul outG RY Cos(ThetaY)
 op mul outH RY Sin(ThetaY)
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
-format "Raiz quadrada sqrt(a+bi):"
+format "Raiz quadrada sqrt(a+bi): (V2)"
 sensor result block1 @copper
 op angle ThetaZ a b
-jump 271 lessThanEq ThetaZ 180
+jump 289 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
 op mul ThetaZ ThetaZ @degToRad
 format "Pelo visto tem que normalizar isso para dar certo..."
@@ -276,27 +294,38 @@ op mul RZ1 b b
 op add RZ2 RZ0 RZ1
 op sqrt RZ RZ2 b
 op sqrt sqrt(RZ) RZ 0.5
-op mul RY sqrt(RZ) 1
 format "Raio feito, pronto, agora o ângulo"
+format "Verificação de 0"
+op strictEqual a_===_0 a 0
+op strictEqual b_===_0 b 0
+op land a_===_b_===_0 a_===_0 b_===_0
+jump 306 notEqual a_===_b_===_0 1
+op add outG 0 0
+op add outH 0 0
+jump 316 always a_===_b_===_0 1
+format "Verificação de 0"
 op log ln(RZ) RZ null
 op mul c*ThetaZ 0.5 ThetaZ
 set ThetaY c*ThetaZ
 op mul ThetaY ThetaY @radToDeg
 op cos Cos(ThetaY) ThetaY null
 op sin Sin(ThetaY) ThetaY null
-op mul outG RY Cos(ThetaY)
-op mul outH RY Sin(ThetaY)
+op mul outG sqrt(RZ) Cos(ThetaY)
+op mul outH sqrt(RZ) Sin(ThetaY)
 sensor result block1 @copper
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
+ubind null
+jump 945 strictEqual ln(RZ) null
+ubind null
 end
 sensor result block1 @copper
-format "Raiz cúbica cbrt(a+bi):"
+format "Raiz cúbica cbrt(a+bi): (V2)"
 op div n 1 3
 sensor result block1 @copper
 op angle ThetaZ a b
-jump 300 lessThanEq ThetaZ 180
+jump 329 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
 op mul ThetaZ ThetaZ @degToRad
 op mul RZ0 a a
@@ -304,19 +333,27 @@ op mul RZ1 b b
 op add RZ2 RZ0 RZ1
 op sqrt RZ RZ2 n
 op pow nrt(RZ) RZ n
-op mul RY nrt(RZ) 1
 format "Raio feito, pronto, agora o ângulo"
+format "Verificação de 0"
+op strictEqual a_===_0 a 0
+op strictEqual b_===_0 b 0
+op land a_===_b_===_0 a_===_0 b_===_0
+jump 306 notEqual a_===_b_===_0 1
+op add outG 0 0
+op add outH 0 0
+jump 316 always a_===_b_===_0 1
+format "Verificação de 0"
 op log ln(RZ) RZ null
 op mul c*ThetaZ n ThetaZ
 set ThetaY c*ThetaZ
 op mul ThetaY ThetaY @radToDeg
 op cos Cos(ThetaY) ThetaY null
 op sin Sin(ThetaY) ThetaY null
-op mul outG RY Cos(ThetaY)
-op mul outH RY Sin(ThetaY)
+op mul outG nrt(RZ) Cos(ThetaY)
+op mul outH nrt(RZ) Sin(ThetaY)
 sensor result block1 @copper
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -351,7 +388,7 @@ format "(R?+I?*i)/i"
 format "iR?+I?"
 set outG I?
 set outH R?
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -386,7 +423,7 @@ format "(R?+I?*i)/i"
 format "iR?+I?"
 set outG R?
 set outH I?
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -414,34 +451,26 @@ op div outG sin(2a) dem
 format "Aqui é mais fácil também, só sinh(2a)/(cos(2a)+cosh(2b)):"
 op div outH sinh(2b) dem
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
 format "Arco seno asin(a+bi):"
-format "O corpo é -i*ln(zi+sqrt(1-x^2))"
-format "Pqp, eu vou ter que usar o ln complexo"
-format "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+format "O corpo é -i*ln(zi+sqrt(1-z^2))"
 op mul a^2 a a
 op mul b^2 b b
 op sub Rz^2 a^2 b^2
 op mul ab a b
 op mul 2ab 2 ab
-format "1 - z^2"
-format "1 - z^2R - (z^2I)i"
-format "1 - a^2 - b^2 - (2ab)i"
 op sub z^2-1R 1 Rz^2
 op mul z^2-1I -1 2ab
-sensor result block1 @copper
 sensor result block1 @copper
 format "Raiz quadrada sqrt(a+bi):"
 sensor result block1 @copper
 op angle ThetaZ z^2-1R z^2-1I
 format "Pelo visto tem que normalizar isso para dar certo..."
-jump 442 lessThanEq ThetaZ 180
+jump 473 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
-format "Eu não sei..."
-format "ERA MESMO AEEEEEEEEEEEEEEEEEEE"
 op mul ThetaZ ThetaZ @degToRad
 op mul RZ0 z^2-1R z^2-1R
 op mul RZ1 z^2-1I z^2-1I
@@ -450,7 +479,6 @@ op sqrt RZ RZ2 b
 op sqrt sqrt(RZ) RZ 0.5
 op mul RY sqrt(RZ) 1
 format "Raio feito, pronto, agora o ângulo"
-op log ln(RZ) RZ null
 op mul c*ThetaZ 0.5 ThetaZ
 set ThetaY c*ThetaZ
 op mul ThetaY ThetaY @radToDeg
@@ -472,8 +500,11 @@ op mul AbsA zi+sqrt(z^2-1)R zi+sqrt(z^2-1)R
 op mul AbsB zi+sqrt(z^2-1)I zi+sqrt(z^2-1)I
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
+ubind null
+jump 945 strictEqual ln(AbsZ) null
+ubind null
 op angle Theta zi+sqrt(z^2-1)R zi+sqrt(z^2-1)I
-jump 477 lessThanEq Theta 180
+jump 508 lessThanEq Theta 180
 op sub Theta Theta 360
 op mul Theta Theta @degToRad
 op mul ln(zi+sqrt(z^2-1)R) 0.5 ln(AbsZ)
@@ -488,7 +519,7 @@ set outG ln(zi+sqrt(z^2-1)I)
 op mul outH -1 ln(zi+sqrt(z^2-1)R)
 sensor result block1 @copper
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -496,28 +527,20 @@ format "Arco cosseno acos(a+bi):"
 format "É só pi/2 - asin(z)"
 format "Ao menos eu já implementei asin(z), bem mais fácil agora"
 format "O corpo é -i*ln(zi+sqrt(1-x^2))"
-format "Pqp, eu vou ter que usar o ln complexo"
-format "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 op mul a^2 a a
 op mul b^2 b b
 op sub Rz^2 a^2 b^2
 op mul ab a b
 op mul 2ab 2 ab
-format "1 - z^2"
-format "1 - z^2R - (z^2I)i"
-format "1 - a^2 - b^2 - (2ab)i"
 op sub z^2-1R 1 Rz^2
 op mul z^2-1I -1 2ab
-sensor result block1 @copper
 sensor result block1 @copper
 format "Raiz quadrada sqrt(a+bi):"
 sensor result block1 @copper
 op angle ThetaZ z^2-1R z^2-1I
 format "Pelo visto tem que normalizar isso para dar certo..."
-jump 518 lessThanEq ThetaZ 180
+jump 543 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
-format "Eu não sei..."
-format "ERA MESMO AEEEEEEEEEEEEEEEEEEE"
 op mul ThetaZ ThetaZ @degToRad
 op mul RZ0 z^2-1R z^2-1R
 op mul RZ1 z^2-1I z^2-1I
@@ -527,6 +550,9 @@ op sqrt sqrt(RZ) RZ 0.5
 op mul RY sqrt(RZ) 1
 format "Raio feito, pronto, agora o ângulo"
 op log ln(RZ) RZ null
+ubind null
+jump 945 strictEqual ln(RZ) null
+ubind null
 op mul c*ThetaZ 0.5 ThetaZ
 set ThetaY c*ThetaZ
 op mul ThetaY ThetaY @radToDeg
@@ -549,7 +575,7 @@ op mul AbsB zi+sqrt(z^2-1)I zi+sqrt(z^2-1)I
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
 op angle Theta zi+sqrt(z^2-1)R zi+sqrt(z^2-1)I
-jump 553 lessThanEq Theta 180
+jump 579 lessThanEq Theta 180
 op sub Theta Theta 360
 op mul Theta Theta @degToRad
 op mul ln(zi+sqrt(z^2-1)R) 0.5 ln(AbsZ)
@@ -566,7 +592,7 @@ op sub outG pi/2 ln(zi+sqrt(z^2-1)I)
 op mul outH 1 ln(zi+sqrt(z^2-1)R)
 sensor result block1 @copper
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -595,6 +621,10 @@ op mul DemI1 1+izR 1-izI
 op sub DemI DemI0 DemI1
 op div (1+iz)/(1-iz)R DemR AbsW
 op div (1+iz)/(1-iz)I DemI AbsW
+ubind null
+jump 945 strictEqual (1+iz)/(1-iz)R null
+jump 945 strictEqual (1+iz)/(1-iz)I null
+ubind null
 sensor result block1 @copper
 format "Agora o ln..."
 format "a = (1+iz)/(1-iz)R"
@@ -606,8 +636,11 @@ op mul AbsA (1+iz)/(1-iz)R (1+iz)/(1-iz)R
 op mul AbsB (1+iz)/(1-iz)I (1+iz)/(1-iz)I
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
+ubind null
+jump 945 strictEqual ln(AbsZ) null
+ubind null
 op angle Theta (1+iz)/(1-iz)R (1+iz)/(1-iz)I
-jump 611 lessThanEq Theta 180
+jump 644 lessThanEq Theta 180
 op sub Theta Theta 360
 op mul Theta Theta @degToRad
 op mul ln((1+iz)/(1-iz))R 0.5 ln(AbsZ)
@@ -621,7 +654,7 @@ set outG ln(...)/2I
 op mul outH -1 ln(...)/2R
 format "Veja isso depois, alterei sem querer"
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -654,7 +687,7 @@ op div outG e^z-e^(-z)R 2
 op div outH e^z-e^(-z)I 2
 format "Meu Deus, o limite é de 1000 linhas..."
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -687,7 +720,7 @@ op div outG e^z+e^(-z)R 2
 op div outH e^z+e^(-z)I 2
 format "Meu Deus, o limite é de 1000 linhas..."
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -730,7 +763,7 @@ sensor result block1 @copper
 format "- z = - a - bi"
 format "Meu Deus, o limite é de 1000 linhas..."
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -749,7 +782,7 @@ format "Raiz quadrada sqrt(a+bi):"
 sensor result block1 @copper
 op angle ThetaZ z^2+1R z^2+1I
 format "Pelo visto tem que normalizar isso para dar certo..."
-jump 753 lessThanEq ThetaZ 180
+jump 786 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
 op mul ThetaZ ThetaZ @degToRad
 format "Pqp, eu vou reescrever essa radiciação por completo"
@@ -766,12 +799,8 @@ op cos Cos(ThetaZ/2) ThetaZ/2 null
 op sin Sin(ThetaZ/2) ThetaZ/2 null
 op mul sqrt(z^2+1)R RY Cos(ThetaZ/2)
 op mul sqrt(z^2+1)I RY Sin(ThetaZ/2)
-sensor result block1 @copper
-op mul IZR a 1
-set IZI b
-sensor result block1 @copper
-op add zi+sqrt(z^2+1)R IZR sqrt(z^2+1)R
-op add zi+sqrt(z^2+1)I IZI sqrt(z^2+1)I
+op add zi+sqrt(z^2+1)R a sqrt(z^2+1)R
+op add zi+sqrt(z^2+1)I b sqrt(z^2+1)I
 sensor result block1 @copper
 sensor result block1 @copper
 format "Ln de (a+bi):"
@@ -780,8 +809,11 @@ op mul AbsA zi+sqrt(z^2+1)R zi+sqrt(z^2+1)R
 op mul AbsB zi+sqrt(z^2+1)I zi+sqrt(z^2+1)I
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
+ubind null
+jump 945 strictEqual ln(AbsZ) null
+ubind null
 op angle Theta zi+sqrt(z^2+1)R zi+sqrt(z^2+1)I
-jump 785 lessThanEq Theta 180
+jump 817 lessThanEq Theta 180
 op sub Theta Theta 360
 op mul Theta Theta @degToRad
 op mul ln(zi+sqrt(z^2+1)R) 0.5 ln(AbsZ)
@@ -791,11 +823,11 @@ set outG ln(zi+sqrt(z^2+1)R)
 op mul outH ln(zi+sqrt(z^2+1)I) 1
 sensor result block1 @copper
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
-format "Arco cosseno hiperbólico asinh(a+bi):"
+format "Arco cosseno hiperbólico acosh(a+bi):"
 format "O corpo é ln(z+sqrt(z^2-1))"
 op mul a^2 a a
 op mul b^2 b b
@@ -810,7 +842,7 @@ format "Raiz quadrada sqrt(a+bi):"
 sensor result block1 @copper
 op angle ThetaZ z^2-1R z^2-1I
 format "Pelo visto tem que normalizar isso para dar certo..."
-jump 814 lessThanEq ThetaZ 180
+jump 846 lessThanEq ThetaZ 180
 op sub ThetaZ ThetaZ 360
 op mul ThetaZ ThetaZ @degToRad
 format "Pqp, eu vou reescrever essa radiciação por completo"
@@ -827,42 +859,36 @@ op cos Cos(ThetaZ/2) ThetaZ/2 null
 op sin Sin(ThetaZ/2) ThetaZ/2 null
 op mul sqrt(z^2-1)R RY Cos(ThetaZ/2)
 op mul sqrt(z^2-1)I RY Sin(ThetaZ/2)
-sensor result block1 @copper
-op mul IZR a 1
-set IZI b
-sensor result block1 @copper
-op add z+sqrt(z^2-1)R IZR sqrt(z^2-1)R
-op add z+sqrt(z^2-1)I IZI sqrt(z^2-1)I
+op add z+sqrt(z^2-1)R a sqrt(z^2-1)R
+op add z+sqrt(z^2-1)I b sqrt(z^2-1)I
 sensor result block1 @copper
 sensor result block1 @copper
 format "Ln de (a+bi):"
-format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
 op mul AbsA z+sqrt(z^2-1)R z+sqrt(z^2-1)R
 op mul AbsB z+sqrt(z^2-1)I z+sqrt(z^2-1)I
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
+ubind null
+jump 945 strictEqual ln(AbsZ) null
+ubind null
 op angle Theta z+sqrt(z^2-1)R z+sqrt(z^2-1)I
-jump 846 lessThanEq Theta 180
+jump 876 lessThanEq Theta 180
 op sub Theta Theta 360
 op mul Theta Theta @degToRad
 op mul ln(z+sqrt(z^2-1)R) 0.5 ln(AbsZ)
 set ln(z+sqrt(z^2-1)I) Theta
 sensor result block1 @copper
 set outG ln(z+sqrt(z^2-1)R)
-op mul outH ln(z+sqrt(z^2-1)I) 1
+set outH ln(z+sqrt(z^2-1)I)
 sensor result block1 @copper
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
 end
 end
 sensor result block1 @copper
 format "Arco tangente hiperbólica atanh(a+bi):"
-format "1+z"
 op add 1+zR 1 a
 set 1+zI b
-format "1-z"
-format "(a+bi) = 1 - z"
-format "(c+di) = 1 + z"
 sensor result block1 @copper
 op sub 1-zR 1 a
 op mul 1-zI -1 b
@@ -878,10 +904,10 @@ op mul DemI1 1+zR 1-zI
 op sub DemI DemI0 DemI1
 op div (1+z)/(1-z)R DemR AbsW
 op div (1+z)/(1-z)I DemI AbsW
-sensor result block1 @copper
-format "Agora o ln..."
-format "a = (1+z)/(1-z)R"
-format "b = (1+z)/(1-z)I"
+ubind null
+jump 945 strictEqual (1+z)/(1-z)R null
+jump 945 strictEqual (1+z)/(1-z)I null
+ubind null
 sensor result block1 @copper
 format "Ln de (a+bi):"
 format "ln(sqrt(a^2+b^2)) = (1/2) * ln(a^2+b^2)"
@@ -889,8 +915,11 @@ op mul AbsA (1+z)/(1-z)R (1+z)/(1-z)R
 op mul AbsB (1+z)/(1-z)I (1+z)/(1-z)I
 op add AbsZ AbsA AbsB
 op log ln(AbsZ) AbsZ AbsB
+ubind null
+jump 945 strictEqual ln(AbsZ) null
+ubind null
 op angle Theta (1+z)/(1-z)R (1+z)/(1-z)I
-jump 894 lessThanEq Theta 180
+jump 923 lessThanEq Theta 180
 op sub Theta Theta 360
 op mul Theta Theta @degToRad
 op mul ln((1+z)/(1-z))R 0.5 ln(AbsZ)
@@ -900,10 +929,18 @@ format "Eu abstraí o ln((1+z)/(1-z)) para não atrapalhar a leitura, troquei s�
 op mul ln(...)/2R 0.5 ln((1+z)/(1-z))R
 op mul ln(...)/2I 0.5 ln((1+z)/(1-z))I
 set outG ln(...)/2R
-op add outH ln(...)/2I 0
+set outH ln(...)/2I
 format "Veja isso depois, alterei sem querer"
 sensor result block1 @copper
-jump 930 always T null
+jump 967 always T null
+end
+end
+sensor result block1 @copper
+format "Conjugado conj(a+bi):"
+set outG a
+op mul outH -1 b
+sensor result block1 @copper
+jump 967 always T null
 end
 end
 sensor result block1 @copper
@@ -925,14 +962,14 @@ print " "
 print Operador
 printflush message1
 read Leu? cell1 0
-jump 926 strictEqual Leu? -2
+jump 963 strictEqual Leu? -2
 sensor result block1 @copper
 end
 sensor result block1 @copper
 format "Se deu tudo certo fica aqui:"
-format "Verificação final, só caso dê errado algo"
-jump 908 strictEqual outG null
-jump 908 strictEqual outH null
+format "MEU DEUS ALGUÉM ME AJUDA, ESTÁ NO LIMITE ISSO TUDO"
+jump 945 strictEqual outG null
+jump 945 strictEqual outH null
 write outG cell1 8
 write outH cell1 9
 write 2 cell1 0
@@ -944,6 +981,5 @@ print outH
 print "i"
 printflush message2
 read Leu? cell1 0
-jump 945 strictEqual Leu? 2
-sensor result block1 @copper
-end
+jump 982 strictEqual Leu? 2
+ubind Socorro
