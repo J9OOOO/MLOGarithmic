@@ -5,26 +5,45 @@ read d cell1 4
 read g cell1 8
 read h cell1 9
 read operador cell1 5
-jump 28 strictEqual operador 1
-jump 40 strictEqual operador 2
-jump 52 strictEqual operador 3
-jump 64 strictEqual operador 4
-jump 76 strictEqual operador 5
-jump 84 strictEqual operador 6
-jump 92 strictEqual operador 7
-jump 104 strictEqual operador 8
-jump 116 strictEqual operador 9
-jump 124 strictEqual operador 10
-jump 137 strictEqual operador 11
-jump 145 strictEqual operador 12
-jump 157 strictEqual operador 13
-jump 165 strictEqual operador 14
-jump 173 strictEqual operador 15
-jump 181 strictEqual operador 16
-jump 189 strictEqual operador 17
-jump 197 strictEqual operador 18
-jump 205 strictEqual operador 19
-jump 213 strictEqual operador 20
+jump 47 strictEqual operador 1
+jump 59 strictEqual operador 2
+jump 71 strictEqual operador 3
+jump 83 strictEqual operador 4
+jump 95 strictEqual operador 5
+jump 103 strictEqual operador 6
+jump 111 strictEqual operador 7
+jump 123 strictEqual operador 8
+jump 135 strictEqual operador 9
+jump 143 strictEqual operador 10
+jump 156 strictEqual operador 11
+jump 164 strictEqual operador 12
+jump 176 strictEqual operador 13
+jump 184 strictEqual operador 14
+jump 192 strictEqual operador 15
+jump 200 strictEqual operador 16
+jump 208 strictEqual operador 17
+jump 216 strictEqual operador 18
+jump 224 strictEqual operador 19
+jump 232 strictEqual operador 20
+jump 240 strictEqual operador 21
+jump 248 strictEqual operador 22
+jump 256 strictEqual operador 23
+jump 264 strictEqual operador 24
+jump 272 strictEqual operador 25
+jump 280 strictEqual operador 26
+jump 288 strictEqual operador 27
+jump 296 strictEqual operador 28
+jump 304 strictEqual operador 29
+jump 312 strictEqual operador 30
+jump 320 strictEqual operador 31
+jump 328 strictEqual operador 32
+jump 336 strictEqual operador 33
+jump 344 strictEqual operador 34
+jump 352 strictEqual operador 35
+jump 360 strictEqual operador 36
+jump 368 strictEqual operador 37
+jump 376 strictEqual operador 38
+jump 384 strictEqual operador 39
 end
 print "("
 print a
@@ -36,7 +55,7 @@ print c
 print "+"
 print d
 print "i)"
-jump 221 always x false
+jump 392 always x false
 end
 print "("
 print a
@@ -48,7 +67,7 @@ print c
 print "+"
 print d
 print "i)"
-jump 221 always x false
+jump 392 always x false
 end
 print "("
 print a
@@ -60,7 +79,7 @@ print c
 print "+"
 print d
 print "i)"
-jump 221 always x false
+jump 392 always x false
 end
 print "("
 print a
@@ -72,7 +91,7 @@ print c
 print "+"
 print d
 print "i)"
-jump 221 always x false
+jump 392 always x false
 end
 print "R("
 print a
@@ -80,7 +99,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "Theta("
 print a
@@ -88,7 +107,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "("
 print a
@@ -100,7 +119,7 @@ print c
 print "+"
 print d
 print "i)"
-jump 221 always x false
+jump 392 always x false
 end
 print "("
 print a
@@ -112,7 +131,7 @@ print c
 print "+"
 print d
 print "i)"
-jump 221 always x false
+jump 392 always x false
 end
 print "ln("
 print a
@@ -120,7 +139,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "logn_("
 print c
@@ -133,7 +152,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "exp("
 print a
@@ -141,7 +160,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "("
 print a
@@ -153,7 +172,7 @@ print c
 print "+"
 print d
 print "i)"
-jump 221 always x false
+jump 392 always x false
 end
 print "sqrt("
 print a
@@ -161,7 +180,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "cbrt("
 print a
@@ -169,7 +188,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "sin("
 print a
@@ -177,7 +196,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "cos("
 print a
@@ -185,7 +204,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "tan("
 print a
@@ -193,7 +212,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "asin("
 print a
@@ -201,7 +220,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "acos("
 print a
@@ -209,7 +228,7 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
 end
 print "atan("
 print a
@@ -217,7 +236,159 @@ print "+"
 print b
 print "i"
 print ")"
-jump 221 always x false
+jump 392 always x false
+end
+print "sinh("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "cosh("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "tanh("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "asinh("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "acosh("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "atanh("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "conj("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "sec("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "csc("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "cot("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "asec("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "acsc("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "acot("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "sech("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "csch("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "coth("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "asech("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "acsch("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
+end
+print "acoth("
+print a
+print "+"
+print b
+print "i"
+print ")"
+jump 392 always x false
 end
 print " = "
 print "("
