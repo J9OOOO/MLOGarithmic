@@ -1,0 +1,68 @@
+read Sinal cell1 0
+jump 0 notEqual Sinal 1
+write -1 cell1 0
+read Op cell1 1
+read arg0 cell1 2
+read arg1 cell1 3
+read arg2 cell1 4
+sensor result block1 @copper
+format "Chamada ao registrador: "
+write 1 cell2 1
+write arg1 cell2 2
+write 1 cell2 0
+read Acabou? cell2 0
+jump 37 strictEqual Acabou? -2
+jump 12 notEqual Acabou? 2
+read Valor1 cell2 4
+write 0 cell2 0
+read PHP cell2 0
+jump 16 notEqual PHP 0
+sensor result block1 @copper
+sensor result block1 @copper
+format "Chamada ao registrador: "
+write 1 cell2 1
+write arg2 cell2 2
+write 1 cell2 0
+read Acabou? cell2 0
+jump 37 strictEqual Acabou? -2
+jump 25 notEqual Acabou? 2
+read Valor2 cell2 4
+write 0 cell2 0
+read PHP cell2 0
+jump 29 notEqual PHP 0
+sensor result block1 @copper
+jump 41 strictEqual Op 1
+jump 44 strictEqual Op 2
+jump 47 strictEqual Op 3
+jump 50 strictEqual Op 4
+write -2 cell1 0
+read Leu? cell1 0
+jump 38 notEqual Leu? 0
+end
+op add out Valor1 Valor2
+jump 54 always x false
+end
+op sub out Valor1 Valor2
+jump 54 always x false
+end
+op mul out Valor1 Valor2
+jump 54 always x false
+end
+jump 37 strictEqual Valor2 0
+op div out Valor1 Valor2
+jump 54 always x false
+end
+sensor result block1 @copper
+format "Chamada ao registrador: "
+write 2 cell2 1
+write arg0 cell2 2
+write out cell2 3
+write 1 cell2 0
+read Acabou? cell2 0
+jump 37 strictEqual Acabou? -2
+jump 60 notEqual Acabou? 2
+write 0 cell2 0
+sensor result block1 @copper
+write 2 cell1 0
+read Leu? cell1 0
+jump 66 notEqual Leu? 0
