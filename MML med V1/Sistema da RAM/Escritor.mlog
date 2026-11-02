@@ -1,0 +1,58 @@
+set QDeBancos 8
+read Sinal cell1 0
+jump 1 notEqual Sinal 1
+op add QDeBancos+1 QDeBancos 1
+write -1 cell1 0
+read Assinatura cell1 1
+read Valor cell1 2
+format "Chamada ao leitor: "
+write Assinatura cell2 1
+write 1 cell2 0
+read Sinal cell2 0
+jump 28 strictEqual Sinal -2
+jump 10 notEqual Sinal 2
+write 0 cell2 0
+format "Se tem assinatura na memória, então só sobrescreve"
+read Caixa cell2 3
+read AssSemLink cell2 4
+op add AssComLink AssSemLink 2
+op add ValorIndice AssComLink 1
+format "AssComLink = AssSemLink + quantidade de coisas linkadas a CPU"
+getlink BancoValor ValorIndice
+write Valor BancoValor Caixa
+write Caixa cell1 3
+write AssSemLink cell1 4
+write 2 cell1 0
+read Leu? cell1 0
+jump 25 notEqual Leu? 0
+end
+format "Se não tem assinatura na memória, então tem que achar um espaço livre"
+write 0 cell2 0
+set AssIndice 2
+set Tentativas 0
+getlink BancoAss AssIndice
+op rand Caixa 512 b
+op floor Caixa Caixa b
+read AssDaCaixa BancoAss Caixa
+jump 46 strictEqual AssDaCaixa 0
+op add Tentativas Tentativas 1
+jump 32 lessThan Tentativas 300
+op add AssIndice AssIndice 2
+jump 31 lessThan AssIndice QDeBancos+1
+format "Não achou lugar para escrever: "
+write -2 cell1 0
+read Leu? cell1 0
+jump 43 notEqual Leu? 0
+end
+format "Achou lugar para escrever: "
+op add ValorIndice AssIndice 1
+op sub AssSemLink AssIndice 2
+getlink BancoValor ValorIndice
+write Assinatura BancoAss Caixa
+write Valor BancoValor Caixa
+write Caixa cell1 3
+write AssIndice cell1 4
+write 2 cell1 0
+read Leu? cell1 0
+jump 55 notEqual Leu? 0
+end
