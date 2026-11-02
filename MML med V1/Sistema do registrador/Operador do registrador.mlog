@@ -1,0 +1,41 @@
+read Sinal cell1 0
+jump 0 notEqual Sinal 1
+write -1 cell1 0
+read Modo cell1 1
+read arg0 cell1 2
+read arg1 cell1 3
+jump 11 greaterThanEq arg0 64
+jump 15 strictEqual Modo 1
+jump 20 strictEqual Modo 2
+jump 24 strictEqual Modo 3
+jump 31 strictEqual Modo 4
+write -2 cell1 0
+read Leu? cell1 0
+jump 12 notEqual Leu? 0
+end
+format "Modo de leitura"
+read Valor cell2 arg0
+write Valor cell1 4
+jump 38 always x false
+end
+format "Modo de escrita"
+write arg1 cell2 arg0
+jump 38 always x false
+end
+format "Modo que tu move o valor de um registrador para outro"
+format "mov arg0 <- arg1"
+jump 11 greaterThanEq arg1 64
+read Valor cell2 arg1
+write Valor cell2 arg0
+jump 38 always x false
+end
+format "Modo de reset,  já que dá para colocar aqui mesmo"
+set j 0
+write 0 cell2 j
+op add j j 1
+jump 33 lessThan j 64
+jump 38 always x false
+end
+write 2 cell1 0
+read Leu? cell1 0
+jump 39 notEqual Leu? 0
