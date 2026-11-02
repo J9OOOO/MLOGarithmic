@@ -1,0 +1,94 @@
+getlink LeitorRam 1
+getlink EscritorRam 2
+getlink OpRegistrador 3
+getlink Dual 4
+getlink ALU 5
+read Sinal cell1 0
+jump 5 notEqual Sinal 1
+write -1 cell1 0
+read Comando cell1 1
+read Arg0 cell1 2
+read Arg1 cell1 3
+read Arg2 cell1 4
+read Arg3 cell1 5
+jump 23 strictEqual Comando 1
+jump 37 strictEqual Comando 2
+jump 51 strictEqual Comando 3
+jump 65 strictEqual Comando 4
+jump 77 strictEqual Comando 5
+format "Se não deu certo fica aqui: "
+write -2 cell1 0
+read Leu? cell1 0
+jump 20 notEqual Leu? 0
+end
+format "Leitor da RAM: (chamada)"
+write Arg0 LeitorRam 1
+write 1 LeitorRam 0
+read Acabou? LeitorRam 0
+jump 32 strictEqual Acabou? -2
+jump 26 notEqual Acabou? 2
+read out0 LeitorRam 2
+read out1 LeitorRam 3
+read out2 LeitorRam 4
+write 0 LeitorRam 0
+jump 18 strictEqual Acabou? -2
+format "Vou ver o que faço com eles depois"
+jump 90 always x false
+end
+format "Escritor da RAM: (chamada)"
+write Arg0 EscritorRam 1
+write Arg1 EscritorRam 2
+write 1 EscritorRam 0
+read Acabou? EscritorRam 0
+jump 46 strictEqual Acabou? -2
+jump 41 notEqual Acabou? 2
+read out0 EscritorRam 3
+read out1 EscritorRam 4
+write 0 EscritorRam 0
+jump 18 strictEqual Acabou? -2
+format "Vou ver o que faço com eles depois"
+jump 90 always x false
+end
+format "Operador do registrador: (chamada)"
+write Arg0 OpRegistrador 1
+write Arg1 OpRegistrador 2
+write Arg2 OpRegistrador 3
+write 1 OpRegistrador 0
+read Acabou? OpRegistrador 0
+jump 60 strictEqual Acabou? -2
+jump 56 notEqual Acabou? 2
+read out0 OpRegistrador 4
+write 0 OpRegistrador 0
+jump 18 strictEqual Acabou? -2
+format "Vou ver o que faço com ele depois"
+jump 90 always x false
+end
+format "Dual: (chamada)"
+write Arg0 Dual 1
+write Arg1 Dual 2
+write Arg2 Dual 3
+write 1 Dual 0
+read Acabou? Dual 0
+jump 73 strictEqual Acabou? -2
+jump 70 notEqual Acabou? 2
+write 0 Dual 0
+jump 18 strictEqual Acabou? -2
+jump 90 always Acabou? -2
+end
+format "ALU: (chamada)"
+write Arg0 ALU 1
+write Arg1 ALU 2
+write Arg2 ALU 3
+write Arg3 ALU 4
+write 1 ALU 0
+read Acabou? ALU 0
+jump 86 strictEqual Acabou? -2
+jump 83 notEqual Acabou? 2
+write 0 ALU 0
+jump 18 strictEqual Acabou? -2
+jump 90 always Leu? 0
+end
+format "Se deu certo fica aqui: "
+write 2 cell1 0
+read Leu? cell1 0
+jump 92 notEqual Leu? 0
