@@ -1,0 +1,61 @@
+getlink LeitorRam 1
+getlink EscritorRam 2
+getlink OpRegistrador 3
+read Sinal cell1 0
+jump 3 notEqual Sinal 1
+write -1 cell1 0
+read Modo cell1 1
+read Arg0 cell1 2
+read Arg1 cell1 3
+jump 15 strictEqual Modo 1
+jump 37 strictEqual Modo 2
+write -2 cell1 0
+read Leu? cell1 0
+jump 12 notEqual Leu? 0
+end
+format "Ram -> registrador"
+format "Chamada da RAM: "
+write Arg0 LeitorRam 1
+write 1 LeitorRam 0
+read Acabou? LeitorRam 0
+jump 11 strictEqual Acabou? -2
+jump 19 notEqual Acabou? 2
+write 0 LeitorRam 0
+read Valor LeitorRam 2
+format "Chamada do registrador: "
+write 2 OpRegistrador 1
+write Arg1 OpRegistrador 2
+write Valor OpRegistrador 3
+write 1 OpRegistrador 0
+read Acabou? OpRegistrador 0
+jump 11 strictEqual Acabou? -2
+jump 29 notEqual Acabou? 2
+write 0 OpRegistrador 0
+write 2 cell1 0
+read Leu? cell1 0
+jump 34 notEqual Leu? 0
+end
+format "Registrador -> Ram"
+format "Chamada do registrador: "
+write 1 OpRegistrador 1
+write Arg0 OpRegistrador 2
+write 1 OpRegistrador 0
+read Acabou? OpRegistrador 0
+jump 11 strictEqual Acabou? -2
+jump 42 notEqual Acabou? 2
+read Valor OpRegistrador 4
+write 0 OpRegistrador 0
+format "Eu não estou fazendo ideia do que eu tô fazendo KKKKKKKKKKKKKKKKKKKKKK"
+format "Caralho, vai ter que chamar o escritor, que merda"
+format "Chamada do escritor: "
+write Arg1 EscritorRam 1
+write Valor EscritorRam 2
+write 1 EscritorRam 0
+read Acabou? EscritorRam 0
+jump 11 strictEqual Acabou? -2
+jump 53 notEqual Acabou? 2
+write 0 EscritorRam 0
+write 2 cell1 0
+read Leu? cell1 0
+jump 58 notEqual Leu? 0
+end
