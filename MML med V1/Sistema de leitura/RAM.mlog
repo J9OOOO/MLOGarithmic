@@ -1,0 +1,32 @@
+set QDeBancos 8
+read Sinal cell1 0
+jump 1 notEqual Sinal 1
+write -1 cell1 0
+read AssinaturaAlvo cell1 1
+set AssinaturaIndice 1
+format "main()"
+op add ValorIndice AssinaturaIndice 1
+getlink BancoAssinatura AssinaturaIndice
+getlink BancoValor ValorIndice
+set CaixaAtual 0
+read AssAtual BancoAssinatura CaixaAtual
+jump 22 strictEqual AssinaturaAlvo AssAtual
+op add CaixaAtual CaixaAtual 1
+jump 11 lessThan CaixaAtual 512
+op add AssinaturaIndice AssinaturaIndice 2
+jump 7 lessThanEq AssinaturaIndice QDeBancos
+format "Não achou, fica aqui: "
+write -2 cell1 0
+read Leu? cell1 0
+jump 19 notEqual Leu? 0
+end
+format "Achou, fica aqui: "
+op sub AssSemLink AssinaturaIndice 1
+read Valor BancoValor CaixaAtual
+write Valor cell1 2
+write CaixaAtual cell1 3
+write AssSemLink cell1 4
+write 2 cell1 0
+read Leu? cell1 0
+jump 29 notEqual Leu? 0
+end
