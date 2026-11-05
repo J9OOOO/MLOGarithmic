@@ -1,0 +1,4 @@
+read a cell1 0
+select Cor strictEqual a 1 255 0
+draw clear Cor 0 0 0 0 0
+drawflush display1
