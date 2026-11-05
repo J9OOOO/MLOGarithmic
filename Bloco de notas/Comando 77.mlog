@@ -14,5 +14,5 @@ op rand j1 52 b
 op floor j1 j1 b
 write j1 bank1 j
 op add j j 1
-jump 11 lessThan j 64
+jump 12 lessThan j 64
 control enabled processor1 0 0 0 0
