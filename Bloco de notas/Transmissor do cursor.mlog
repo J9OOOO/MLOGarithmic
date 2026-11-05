@@ -1,0 +1,34 @@
+set i 0
+set Pular 0
+read Cursor bank2 511
+read LimInf bank2 510
+op sub LimInf-1 LimInf 1
+op lessThan CursorFora Cursor LimInf-1
+op sub Cursor Cursor LimInf
+jump 16 strictEqual CursorFora 1
+jump 10 strictEqual Pular 1
+jump 16 strictEqual Cursor 0
+getlink MD i
+write 0 MD 0
+jump 26 strictEqual Cursor i
+op add i i 1
+jump 2 lessThanEq i 63
+end
+getlink MD 0
+jump 19 strictEqual CursorFora 1
+write 1 MD 0
+wait 0.5
+write 0 MD 0
+wait 0.5
+set Pular 1
+op add i i 1
+jump 14 always x false
+end
+op add i+1 i 1
+getlink MD i
+write 1 MD 0
+wait 0.5
+write 0 MD 0
+wait 0.5
+set Pular 0
+jump 14 always x false
