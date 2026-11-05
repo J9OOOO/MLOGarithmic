@@ -1,0 +1,18 @@
+read Pronto? cell1 0
+jump 0 notEqual Pronto? 1
+write 0 cell1 0
+write 14 bank1 0
+write 27 bank1 1
+write 27 bank1 2
+write 24 bank1 3
+write 36 bank1 4
+write 2 bank1 5
+write 2 bank1 6
+write 4 bank1 7
+set j 8
+op rand j1 52 b
+op floor j1 j1 b
+write j1 bank1 j
+op add j j 1
+jump 11 lessThan j 64
+control enabled processor1 0 0 0 0
