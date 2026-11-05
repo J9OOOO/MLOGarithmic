@@ -1,0 +1,97 @@
+control enabled processor1 1 0 0 0
+read Profundidade bank1 510
+set CaractereAtual 0
+set CaracteresLim 128
+op sub CaracteresTotais CaracteresLim 1
+ubind @main()
+read Recebeu? cell1 1
+read CaractereAtual bank1 511
+jump 6 notEqual Recebeu? 1
+read Caractere cell1 0
+format "Despacho de comandos, se não for é caractere"
+jump 23 strictEqual Caractere 37
+jump 31 strictEqual Caractere 38
+jump 36 strictEqual Caractere 64
+jump 40 strictEqual Caractere 65
+jump 51 strictEqual Caractere 66
+jump 63 strictEqual Caractere 76
+jump 71 strictEqual Caractere 60
+jump 77 strictEqual Caractere 71
+jump 54 strictEqual Caractere 77
+jump 82 always Caractere 1
+end
+format "Apaga tudo e reinicia"
+set k 0
+write 36 bank1 k
+op add k k 1
+jump 24 lessThan k CaracteresLim
+write 0 cell1 1
+write 0 bank1 510
+write 0 bank1 511
+end
+jump 33 strictEqual CaractereAtual 0
+op sub CaractereAtual CaractereAtual 1
+write 36 bank1 CaractereAtual
+jump 86 always CaractereAtual CaracteresLim
+end
+jump 38 strictEqual CaractereAtual 0
+op sub CaractereAtual CaractereAtual 1
+jump 86 always CaractereAtual CaracteresLim
+end
+format "Vai para o último caractere escrito, não conta o espaço"
+set k CaracteresTotais
+read CaractereA bank1 k
+jump 46 strictEqual CaractereA 36
+set CaractereAtual k
+jump 49 always CaractereA 36
+op sub k k 1
+jump 42 greaterThanEq k 0
+set CaractereAtual -1
+jump 85 always CaractereAtual CaracteresLim
+end
+jump 86 strictEqual CaractereAtual CaracteresTotais
+jump 85 always CaractereAtual 63
+end
+format "Não entendo o porquê de sua escolha..."
+write 1 cell2 0
+wait 1
+set pq 0
+op add pq pq 1
+op mod pq pq 63
+write pq bank1 511
+jump 58 always CaractereAtual 63
+end
+format "Enter"
+op idiv Caractere1 CaractereAtual 16
+op add Caractere2 Caractere1 1
+op mul CaractereTeste Caractere2 16
+jump 86 greaterThan CaractereTeste CaracteresLim
+op mul CaractereAtual Caractere2 16
+jump 86 always CaractereAtual 63
+end
+format "Subir"
+jump 75 lessThanEq Profundidade 0
+op sub Profundidade Profundidade 16
+write Profundidade bank1 510
+jump 86 always CaractereAtual 63
+end
+format "Descer"
+op add Profundidade Profundidade 16
+write Profundidade bank1 510
+jump 86 always CaractereAtual 63
+end
+op sub Caractere-2 Caractere 2
+select Caractere greaterThan Caractere 37 Caractere-2 Caractere
+write Caractere bank1 CaractereAtual
+op add CaractereAtual CaractereAtual 1
+write 0 cell1 1
+write CaractereAtual bank1 511
+jump 6 lessThan CaractereAtual CaracteresLim
+ubind @main()
+format "Apaga tudo e reinicia"
+set k 0
+write 36 bank1 k
+op add k k 1
+jump 92 lessThan k CaracteresLim
+write 0 bank1 510
+write 0 bank1 511
