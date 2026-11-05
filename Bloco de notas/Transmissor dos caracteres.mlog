@@ -1,0 +1,10 @@
+read OndeInicia bank2 510
+set Inicio OndeInicia
+op add 64+i 64 Inicio
+read a bank2 Inicio
+set OndeInicia1 OndeInicia
+op sub i Inicio OndeInicia
+getlink b i
+write a b 63
+op add Inicio Inicio 1
+jump 3 lessThanEq Inicio 64+i
