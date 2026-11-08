@@ -1,0 +1,12 @@
+set n 35
+read Valor cell2 62
+read ValorAntigo cell2 61
+jump 1 strictEqual Valor ValorAntigo
+op sub 35-n 34 n
+op shr Valor>>n Valor n
+op mod Valor>>n Valor>>n 2
+op land BitN Valor>>n 1
+write BitN cell2 35-n
+op sub n n 1
+jump 4 greaterThanEq n 0
+write Valor cell2 61
