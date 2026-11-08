@@ -1,0 +1,9 @@
+set i 30
+op sub i-5 i 30
+getlink Display i-5
+read Bit cell1 i
+select Cor strictEqual Bit 1 255 0
+draw clear 0 0 Cor 0 0 0
+drawflush Display
+op add i i 1
+jump 1 lessThan i 35
