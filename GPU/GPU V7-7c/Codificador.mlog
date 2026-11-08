@@ -1,0 +1,162 @@
+getlink a 0
+read Número a 63
+jump 56 strictEqual Número 0
+jump 58 strictEqual Número 1
+jump 60 strictEqual Número 2
+jump 62 strictEqual Número 3
+jump 64 strictEqual Número 4
+jump 66 strictEqual Número 5
+jump 68 strictEqual Número 6
+jump 70 strictEqual Número 7
+jump 72 strictEqual Número 8
+jump 74 strictEqual Número 9
+jump 76 strictEqual Número 10
+jump 78 strictEqual Número 11
+jump 80 strictEqual Número 12
+jump 82 strictEqual Número 13
+jump 84 strictEqual Número 14
+jump 86 strictEqual Número 15
+jump 88 strictEqual Número 16
+jump 90 strictEqual Número 17
+jump 92 strictEqual Número 18
+jump 94 strictEqual Número 19
+jump 96 strictEqual Número 20
+jump 98 strictEqual Número 21
+jump 100 strictEqual Número 22
+jump 102 strictEqual Número 23
+jump 104 strictEqual Número 24
+jump 106 strictEqual Número 25
+jump 108 strictEqual Número 26
+jump 110 strictEqual Número 27
+jump 112 strictEqual Número 28
+jump 114 strictEqual Número 29
+jump 116 strictEqual Número 30
+jump 118 strictEqual Número 31
+jump 120 strictEqual Número 32
+jump 122 strictEqual Número 33
+jump 124 strictEqual Número 34
+jump 126 strictEqual Número 35
+jump 128 strictEqual Número 36
+jump 130 strictEqual Número 37
+jump 132 strictEqual Número 38
+jump 134 strictEqual Número 39
+jump 136 strictEqual Número 40
+jump 138 strictEqual Número 41
+jump 140 strictEqual Número 42
+jump 142 strictEqual Número 43
+jump 144 strictEqual Número 44
+jump 146 strictEqual Número 45
+jump 148 strictEqual Número 46
+jump 150 strictEqual Número 47
+jump 152 strictEqual Número 48
+jump 154 strictEqual Número 49
+jump 156 strictEqual Número 50
+jump 158 strictEqual Número 51
+jump 160 strictEqual Número 52
+end
+write 15621211694 a 62
+end
+write 3390080033 a 62
+end
+write 32247333407 a 62
+end
+write 15067448366 a 62
+end
+write 18842354721 a 62
+end
+write 33840104510 a 62
+end
+write 15620621870 a 62
+end
+write 16140764193 a 62
+end
+write 15621113390 a 62
+end
+write 15621129774 a 62
+end
+write 13191757 a 62
+end
+write 17713740 a 62
+end
+write 15221262 a 62
+end
+write 1287462 a 62
+end
+write 13203982 a 62
+end
+write 15233552 a 62
+end
+write 211256614 a 62
+end
+write 17330770 a 62
+end
+write 134353028 a 62
+end
+write 67176772 a 62
+end
+write 19493458 a 62
+end
+write 4329602 a 62
+end
+write 11191857 a 62
+end
+write 21842514 a 62
+end
+write 15255086 a 62
+end
+write 13192080 a 62
+end
+write 6595809 a 62
+end
+write 23372040 a 62
+end
+write 32012382 a 62
+end
+write 19483214 a 62
+end
+write 23677516 a 62
+end
+write 14815364 a 62
+end
+write 18400938 a 62
+end
+write 19477074 a 62
+end
+write 346229062 a 62
+end
+write 32575775 a 62
+end
+write 0 a 62
+end
+write 6604 a 62
+end
+write 14798 a 62
+end
+write 4433514500 a 62
+end
+write 13507823618 a 62
+end
+write 415236492 a 62
+end
+write 415236232 a 62
+end
+write 458752 a 62
+end
+write 4657152 a 62
+end
+write 14694400 a 62
+end
+write 10627072 a 62
+end
+write 1109533200 a 62
+end
+write 9144123912 a 62
+end
+write 2182120482 a 62
+end
+write 26323993112 a 62
+end
+write 3255862307 a 62
+end
+write 136349824 a 62
+end
