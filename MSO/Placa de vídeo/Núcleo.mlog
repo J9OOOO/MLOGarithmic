@@ -1,0 +1,184 @@
+set N-CPU 0
+op mul LimI 16 N-CPU
+op add LimS LimI 15
+format "Bora ver se a abstração funciona: "
+read Cursor cell1 63
+set Link 2
+set DisplaySL LimI
+op add DisplayL DisplaySL Link
+read Caractere bank1 DisplaySL
+getlink Display DisplayL
+draw color 0 0 255 255 0 0
+draw clear 0 0 0 0 0 0
+sensor result block1 @copper
+format "Aqui vai escolher o caractere: "
+jump 17 notEqual Caractere 0
+print 0
+jump 173 always Caractere 35
+jump 20 notEqual Caractere 1
+print 1
+jump 173 always Caractere 35
+jump 23 notEqual Caractere 2
+print 2
+jump 173 always Caractere 35
+jump 26 notEqual Caractere 3
+print 3
+jump 173 always Caractere 35
+jump 29 notEqual Caractere 4
+print 4
+jump 173 always Caractere 35
+jump 32 notEqual Caractere 5
+print 5
+jump 173 always Caractere 35
+jump 35 notEqual Caractere 6
+print 6
+jump 173 always Caractere 35
+jump 38 notEqual Caractere 7
+print 7
+jump 173 always Caractere 35
+jump 41 notEqual Caractere 8
+print 8
+jump 173 always Caractere 35
+jump 44 notEqual Caractere 9
+print 9
+jump 173 always Caractere 35
+jump 47 notEqual Caractere 10
+print "a"
+jump 173 always Caractere 35
+jump 50 notEqual Caractere 11
+print "b"
+jump 173 always Caractere 35
+jump 53 notEqual Caractere 12
+print "c"
+jump 173 always Caractere 35
+jump 56 notEqual Caractere 13
+print "d"
+jump 173 always Caractere 35
+jump 59 notEqual Caractere 14
+print "e"
+jump 173 always Caractere 35
+jump 62 notEqual Caractere 15
+print "f"
+jump 173 always Caractere 35
+jump 65 notEqual Caractere 16
+print "g"
+jump 173 always Caractere 35
+jump 68 notEqual Caractere 17
+print "h"
+jump 173 always Caractere 35
+jump 71 notEqual Caractere 18
+print "i"
+jump 173 always Caractere 35
+jump 74 notEqual Caractere 19
+print "j"
+jump 173 always Caractere 35
+jump 77 notEqual Caractere 20
+print "k"
+jump 173 always Caractere 35
+jump 80 notEqual Caractere 21
+print "l"
+jump 173 always Caractere 35
+jump 83 notEqual Caractere 22
+print "m"
+jump 173 always Caractere 35
+jump 86 notEqual Caractere 23
+print "n"
+jump 173 always Caractere 35
+jump 89 notEqual Caractere 24
+print "o"
+jump 173 always Caractere 35
+jump 92 notEqual Caractere 25
+print "p"
+jump 173 always Caractere 35
+jump 95 notEqual Caractere 26
+print "q"
+jump 173 always Caractere 35
+jump 98 notEqual Caractere 27
+print "r"
+jump 173 always Caractere 35
+jump 101 notEqual Caractere 28
+print "s"
+jump 173 always Caractere 35
+jump 104 notEqual Caractere 29
+print "u"
+jump 173 always Caractere 35
+jump 107 notEqual Caractere 30
+print "v"
+jump 173 always Caractere 35
+jump 110 notEqual Caractere 31
+print "t"
+jump 173 always Caractere 35
+jump 113 notEqual Caractere 32
+print "w"
+jump 173 always Caractere 35
+jump 116 notEqual Caractere 33
+print "x"
+jump 173 always Caractere 35
+jump 119 notEqual Caractere 34
+print "y"
+jump 173 always Caractere 35
+jump 122 notEqual Caractere 35
+print "z"
+jump 173 always Caractere 35
+jump 125 notEqual Caractere 36
+print ""
+jump 173 always Caractere 35
+jump 128 notEqual Caractere 37
+print ","
+jump 173 always Caractere 35
+jump 131 notEqual Caractere 38
+print "."
+jump 173 always Caractere 35
+jump 134 notEqual Caractere 39
+print "!"
+jump 173 always Caractere 35
+jump 137 notEqual Caractere 40
+print "?"
+jump 173 always Caractere 35
+jump 140 notEqual Caractere 41
+print ":"
+jump 173 always Caractere 35
+jump 143 notEqual Caractere 42
+print ";"
+jump 173 always Caractere 35
+jump 146 notEqual Caractere 43
+print "-"
+jump 173 always Caractere 35
+jump 149 notEqual Caractere 44
+print "+"
+jump 173 always Caractere 35
+jump 152 notEqual Caractere 45
+print "="
+jump 173 always Caractere 35
+jump 155 notEqual Caractere 46
+print "*"
+jump 173 always Caractere 35
+jump 158 notEqual Caractere 47
+print "/"
+jump 173 always Caractere 35
+jump 161 notEqual Caractere 48
+print "("
+jump 173 always Caractere 35
+jump 164 notEqual Caractere 49
+print ")"
+jump 173 always Caractere 35
+jump 167 notEqual Caractere 50
+print "["
+jump 173 always Caractere 35
+jump 170 notEqual Caractere 51
+print "]"
+jump 173 always Caractere 35
+jump 173 notEqual Caractere 52
+print ">"
+jump 173 always Caractere 35
+sensor result block1 @copper
+draw scale 3 3 @bottomLeft 0 0 0
+draw print 7 7 @bottomLeft 0 0 0
+jump 180 notEqual Cursor DisplaySL
+draw color 255 0 0 255 0 0
+draw rect 7 0 10 2 0 0
+draw color 0 0 255 255 0 0
+drawflush Display
+draw reset 0 0 @bottomLeft 0 0 0
+op add DisplaySL DisplaySL 1
+jump 7 lessThanEq DisplaySL LimS
