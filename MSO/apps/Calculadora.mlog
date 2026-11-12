@@ -1,0 +1,52 @@
+set Caracteres bank1
+set CursorBanco cell2
+set KernelTeclado cell1
+set LimCaracteres 256
+set ESPAÇO 36
+read TeclaRecebida? KernelTeclado 1
+read Cursor CursorBanco 63
+jump 5 notEqual TeclaRecebida? 1
+set Válido 0
+read Caractere KernelTeclado 0
+jump 41 strictEqual Caractere 76
+format "Aqui ele vai ver se o caractere é válido ou não: "
+jump 14 greaterThanEq Caractere 10
+set Válido 1
+jump 16 notEqual Caractere 39
+set Válido 1
+jump 18 notEqual Caractere 43
+set Válido 1
+jump 20 notEqual Caractere 44
+set Válido 1
+jump 22 notEqual Caractere 45
+set Válido 1
+jump 24 notEqual Caractere 46
+set Válido 1
+jump 26 notEqual Caractere 47
+set Válido 1
+format "Se não for válido, bloqueia"
+jump 30 strictEqual Válido 0
+jump -1 strictEqual Válido 1
+end
+write 14 Caracteres 16
+write 27 Caracteres 17
+write 27 Caracteres 18
+write 24 Caracteres 19
+wait 4
+write ESPAÇO Caracteres 16
+write ESPAÇO Caracteres 17
+write ESPAÇO Caracteres 18
+write ESPAÇO Caracteres 19
+jump 49 always x false
+end
+set j 0
+write ESPAÇO Caracteres j
+op add j j 1
+jump 42 lessThan j LimCaracteres
+write 0 CursorBanco 63
+write 0 KernelTeclado 1
+end
+op add Cursor Cursor 1
+write 0 KernelTeclado 1
+write Cursor CursorBanco 63
+jump 5 always x false
